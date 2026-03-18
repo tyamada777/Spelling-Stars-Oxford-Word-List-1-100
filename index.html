@@ -802,12 +802,63 @@ function loadSpell() {
 }
 
 function speakWord() { speakSingle(currentWord); }
+
+// Priority-ordered list of preferred voices (most natural first)
+const VOICE_PRIORITY = [
+  // macOS / iOS Siri-quality
+  "Samantha", "Karen", "Daniel", "Moira", "Rishi",
+  // Google high-quality
+  "Google US English", "Google UK English Female", "Google UK English Male",
+  // Microsoft natural voices (Edge/Windows)
+  "Microsoft Aria Online (Natural)", "Microsoft Guy Online (Natural)",
+  "Microsoft Zira", "Microsoft David",
+];
+
+let _bestVoice = null;
+
+function getBestVoice() {
+  if (_bestVoice) return _bestVoice;
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) return null;
+
+  // Try priority list first
+  for (const name of VOICE_PRIORITY) {
+    const v = voices.find(v => v.name === name);
+    if (v) { _bestVoice = v; return v; }
+  }
+  // Fall back: any en-AU, then en-GB, then en-US
+  for (const lang of ['en-AU', 'en-GB', 'en-US', 'en']) {
+    const v = voices.find(v => v.lang.startsWith(lang));
+    if (v) { _bestVoice = v; return v; }
+  }
+  return voices[0];
+}
+
 function speakSingle(w) {
   if (!window.speechSynthesis) return;
-  const u = new SpeechSynthesisUtterance(w);
-  u.rate = 0.85; u.lang = 'en-AU';
   window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(u);
+
+  const trySpeak = () => {
+    const u = new SpeechSynthesisUtterance(w);
+    const voice = getBestVoice();
+    if (voice) {
+      u.voice = voice;
+      u.lang = voice.lang;
+    } else {
+      u.lang = 'en-AU';
+    }
+    u.rate = 0.82;
+    u.pitch = 1.05;
+    window.speechSynthesis.speak(u);
+  };
+
+  // Voices may not be loaded yet on first call
+  const voices = window.speechSynthesis.getVoices();
+  if (voices.length) {
+    trySpeak();
+  } else {
+    window.speechSynthesis.addEventListener('voiceschanged', trySpeak, { once: true });
+  }
 }
 
 function checkSpell() {
