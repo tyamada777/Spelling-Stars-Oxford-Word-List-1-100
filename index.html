@@ -1,358 +1,3 @@
-
-20260318_1836303616726546545973990.jpg
-小学2年生がこのスペリングテストするんだけど、それを練習するアプリ作れる？どんな構成にしたら、覚えられるかな？
-
-3月18日
-いいですね！まずアプリの構成を考えましょう。
-
-Q: どんな練習モードを入れたい？
-A: スペリング入力（聞いて書く）, 穴埋めクイズ
-
-Q: アプリの使い方は？
-A: 子供が一人で使う
-
-3月18日
-わかった！子供が一人で使える、楽しい練習アプリを作るね。
-
-
-Reading frontend design skill
-Reading frontend design skill
-アプリ設計の方針：
-
-対象: 小学2年生が一人で使える
-デザイン: カラフル・楽しい・シンプルな操作
-モード: 穴埋めクイズ＋スペリング入力（音声読み上げ付き）
-モチベーション: ★スター獲得・進捗表示
-作るね！
-
-
-ファイルを作成しました, ファイルを読み取りました
-ファイルを作成しました, ファイルを読み取りました
-できた！⭐ Spelling Stars アプリです。
-
-アプリの構成
-🔤 Fill in the Blank（穴埋めクイズ）
-
-単語の1文字だけ隠して、4択から選ぶ
-小学2年生でも一人で操作しやすい
-🎧 Spell the Word（スペリング入力）
-
-音声読み上げを聞いて（🔊ボタン）、単語を全部タイプ
-自動で発音してくれる（英語音声）
-📖 Word List（単語一覧）
-
-全100単語を一覧表示、タップで発音確認
-ゲーム要素
-⭐ 正解するたびにスターが貯まる
-🎉 コンフェッティ（紙吹雪）アニメーション
-「もう一度練習する単語」リストを表示
-進捗が保存される（ブラウザのローカルストレージ）
-ヒント: iPhoneやiPadのブラウザでも使えます。ホーム画面に追加するとアプリっぽく使えますよ！
-
-Spelling practice
-コード · HTML 
-Fill in the brank に言葉のヒント書いたら？だって考えられる言葉は山ほどあるでしょ？
-
-3月18日
-確かに！文字だけじゃどの単語か全然わからないね。日本語のヒント（意味）を追加しよう。
-
-
-3個のファイルを表示しました
-3個のファイルを表示しました
-わかった、全部把握した。WORDSを日本語ヒント付きのオブジェクトに変えて、Fill in the Blankに表示するように更新するね。
-
-
-Replace WORDS array with object including Japanese hints, and update all references
-Replace WORDS array with object including Japanese hints, and update all references
-次にFill modeにヒントを表示する部分を追加：
-
-
-3個のファイルを編集しました, ファイルを読み取りました
-3個のファイルを編集しました, ファイルを読み取りました
-更新したよ！
-
-穴埋めクイズの画面に、こんな感じのヒントが出るようになった：
-
-💡 行った（goの過去形）　→　W _ N T
-
-全100単語に日本語の意味を追加してあるので、何の単語かちゃんとわかって考えられるようになったはず。品詞の説明も短く添えたから、少しずつ文法感覚も身につくかも。
-
-Spelling practice
-コード · HTML 
-漢字は使わないで、使う人はgrade2の英語ネイティブ日本語は第二言語。英語と日本語のどちらもヒント
-
-3月18日
-なるほど！英語ネイティブの子だから、英語ヒントをメインに、日本語はサブで添える感じにしよう。漢字なし、ひらがな・カタカナのみで更新するね。
-
-
-Replace all hints with English + Japanese (no kanji) bilingual hints
-Replace all hints with English + Japanese (no kanji) bilingual hints
-次にHINTSの参照とバッジのHTMLを両言語表示に更新：
-
-
-3個のファイルを編集しました, ファイルを読み取りました
-3個のファイルを編集しました, ファイルを読み取りました
-更新したよ！穴埋めのヒントはこんな表示になった：
-
-💡
-used before a specific thing   ← 英語メイン（grade2が読める）
-その〜、あの〜                  ← 日本語サブ（ひらがなのみ）
-英語ネイティブの子なので英語の説明を上にメインで、日本語は補足として下に小さく表示。漢字はゼロ、ひらがな・カタカナのみにしてあるよ。
-
-Spelling practice
-コード · HTML 
-githubでどうやって共有できるようにするんだっけ？github pagese
-
-3月18日
-GitHub Pagesの手順、説明するね！
-
-GitHub Pagesで公開する手順
-1. リポジトリを作る
-github.com にログイン
-右上の 「+」→「New repository」
-Repository name: spelling-stars（なんでもOK）
-Public を選択（Pagesは無料でPublicのみ）
-「Create repository」
-2. HTMLファイルをアップロード
-作ったリポジトリを開く
-「Add file」→「Upload files」
-spelling-practice.html をドラッグ＆ドロップ
-⚠️ ファイル名を index.html にリネームしてからアップロード（これが重要！）
-「Commit changes」
-3. GitHub Pagesを有効にする
-リポジトリの **「Settings」**タブ
-左メニューの 「Pages」
-Branch: main を選択 → 「Save」
-1〜2分待つ
-4. URLが発行される
-https://あなたのユーザー名.github.io/spelling-stars/
-このURLをシェアすれば誰でもスマホ・PCからアクセスできる！
-
-ポイント
-ファイル名は必ず index.html にすること
-変更したいときはファイルを上書きアップロードするだけで自動更新される
-以前作った oil-shock-chart と同じ手順だよ！
-もっとリアルな声にならない？
-
-3月18日
-音声の改善方法はいくつかあるよ！
-
-**「無料・そのまま使える（ブラウザ音声を最適化）」**を選んだね！
-
-ブラウザのWeb Speech APIは声の質がデバイスによって全然違う。iPhoneやMacならSiri音声が使えてかなりリアルになるよ。一番いい声を自動で選ぶように改善するね。
-
-
-2個のファイルを表示しました, ファイルを編集しました, ファイルを読み取りました
-2個のファイルを表示しました, ファイルを編集しました, ファイルを読み取りました
-更新したよ！仕組みはこんな感じ：
-
-声の選び方（優先順位）
-
-Samantha / Karen（Mac・iPhoneのSiri音声）→ 一番自然
-Daniel / Moira（Mac英国・アイルランド音声）
-Google US/UK English（Chrome系）
-Microsoft Aria Natural（Edge・Windows）
-それ以外のen-AU → en-GB → en-US の順でフォールバック
-デバイス別の期待値
-
-iPhone / iPad → Siri「Karen」でかなりリアル 🎯
-Mac + Chrome → Google音声
-Mac + Safari → Samantha
-Windows Edge → Microsoft Aria Natural
-GitHub Pagesに上げたあと、子供のiPadで開くと一番いい声になるはず！
-
-Spelling practice
-コード · HTML 
-[User denied question request]
-
-17:33
-わかった！今のブラウザ音声のままで進めよう。
-
-他に改善したいところある？例えば：
-
-Spell the Wordモードにもヒントを追加
-問題数を変えられるようにする
-ハイスコア記録
-間違ったやつリストを作って欲しい5回間違わなかったらそのリストから消える、間違わなくなるまでできるアプリにしたい全部パーフェクトになったら星が埋まるようにする
-
-17:35
-いいね！「にがてリスト」機能、作るよ。
-
-仕様を確認：
-
-間違えた単語 → にがてリストに追加
-にがてリストを5回連続正解 → リストから卒業
-全100単語が卒業したら ⭐ 全部埋まる
-ホーム画面に「にがてリストだけ練習」モードを追加
-
-Read full file to understand current structure
-Read full file to understand current structure
-すでにマスターモードの骨格がある！でも「5回連続正解で卒業」「全100単語パーフェクトで星が埋まる」という仕様に合わせて全面的に整理・強化するね。今のコードは部分的に中途半端なので、きれいに作り直す。
-
-
-See the HTML structure for screens
-See the HTML structure for screens
-全体の構造が把握できた。スクラッチで整理した新バージョンを作るね。
-
-
-2個のファイルを作成しました, コマンドを実行しました, ファイルを読み取りました
-2個のファイルを作成しました, コマンドを実行しました, ファイルを読み取りました
-できた！新しい仕組みはこんな感じ：
-
-🔥 にがてリスト（Tricky Words）の仕組み
-間違えたら自動追加 → ホーム画面に「🔥 Practice Tricky Words」ボタンが出る
-
-5回連続正解で卒業 → その単語は trickyMap から消えて masteredSet に入る
-
-間違えたらストリークがゼロにリセット
-Fill in the Blank と Spell the Word を交互に出題
-現在のストリークは**ピップ（●●●●●）**でリアルタイム表示
-進捗はブラウザに保存 → アプリを閉じても消えない
-
-⭐ 100個の星
-ホーム画面に☆が100個並んでいる
-単語を卒業するたびに☆→⭐に変わる
-全100個が⭐になると「ALL 100 STARS! 🌟」の特別画面が出て大量の紙吹雪！
-Spelling practice
-コード · HTML 
-まだ5回連続成果していないワードしか出てこないモードを作って。あと星の下にワードを書いたらいいかも。星と各ワードをまとめて枠内に入れるように表示したらわかりやすいかも
-
-17:49
-いいね！整理すると：
-
-「まだ5回連続成功していないワード限定」モード — マスター済み以外からランダム出題
-星グリッド改善 — 各セルに星＋単語名、枠付きでわかりやすく
-
-3個のファイルを表示しました
-3個のファイルを表示しました
-全体把握できた。2つの変更を加えるね：
-
-星グリッド → 星＋単語名のカードに変更
-新モード「まだマスターしてないワードだけ」ボタン追加
-
-2個のファイルを編集しました
-2個のファイルを編集しました
-次に「まだマスターしていないワード」モードのボタンをHTMLに追加：
-
-
-Add new "not yet mastered" mode button between spell and master
-Add new "not yet mastered" mode button between spell and master
-新ボタンのスタイルと、updateHome・star grid の描画を更新：
-
-
-Add challenge button style
-Add challenge button style
-次にupdateHomeの星グリッド描画とchallenge count更新：
-
-
-Update updateHome to render new star cards and challenge count
-Update updateHome to render new star cards and challenge count
-最後にstartChallenge関数を追加：
-
-
-Add startChallenge function after startMode
-Add startChallenge function after startMode
-challengeモードでの回答処理も正しく流れるように、handleFillとcheckSpellのloadQ呼び出しをチェック：
-
-
-2個のファイルを編集しました, ファイルを読み取りました
-2個のファイルを編集しました, ファイルを読み取りました
-更新したよ！変更点：
-
-🎯 Challenge Mode（新モード）
-マスター済み以外のワードだけからランダム10問
-Fill と Spell を1問ずつ交互に出題
-間違えたら自動的にTrickyリストへ
-残り何単語あるかバッジに表示
-全部マスターしたら自動的に消える
-⭐ 星グリッド改善
-5列×20行のカード表示に変更
-各カードに 星＋単語名 を表示
-状態で色分け：
-☆（灰）= まだ
-🔥（赤）= にがてリスト入り
-⭐（黄）= マスター済み
-ホームのボタンは上から順に：
-
-🔤 Fill in the Blank（ランダム全100）
-🎧 Spell the Word（ランダム全100）
-🎯 Challenge Mode（未マスターのみ） ← 新しい
-🔥 Practice Tricky Words（にがてリスト）
-📖 Word List
-Spelling practice
-コード · HTML 
-ちゃんと動いてない気が
-
-17:52
-どこが動いてないか確認するね。
-
-
-Check full file for any obvious bugs
-Check full file for any obvious bugs
-見つけた！607〜610行目に壊れたコードが残ってる。前回の編集で loadQ() の中身が誤って残留してる。完全に直すね。
-
-
-Remove broken leftover loadQ fragment
-Remove broken leftover loadQ fragment
-他にも問題がないか全体をチェック：
-
-
-2個のファイルを表示しました
-2個のファイルを表示しました
-もう一つバグ発見：loadQ() 関数自体が消えてしまっている（startModeが呼んでいるのに関数がない）。また startMode で challenge モード時のfill/spell表示切り替えも抜けている。まとめて修正：
-
-
-Add missing loadQ function and fix startMode to handle challenge display
-Add missing loadQ function and fix startMode to handle challenge display
-次に startMode でfill/spell以外（challengeが来た場合）にfillSecが非表示になったままになるバグも修正：
-
-
-ファイルを編集しました, ファイルを表示しました
-ファイルを編集しました, ファイルを表示しました
-コード自体は正しく直ってる。あとはresultから「Play Again」を押した時にchallengeモードに戻れるよう修正：
-
-
-ファイルを編集しました, ファイルを読み取りました
-ファイルを編集しました, ファイルを読み取りました
-直したよ！バグの原因は2つあった：
-
-致命的バグ — 前回の編集で loadQ() 関数の中身が途中で消えて、壊れたコード片が残ってた → 削除して loadQ() を正しく復元
-Challenge Modeのリプレイ — 結果画面の「Play Again」が startMode() を呼んでたので startChallenge() に修正
-これで全モード動くはず。もし他に変な動きがあったら教えて！
-
-Spelling practice
-コード · HTML 
-星カードを一番下に持ってきて
-
-17:53
-
-2個のファイルを編集しました, ファイルを読み取りました
-2個のファイルを編集しました, ファイルを読み取りました
-移動したよ！ボタンが上、星カードが一番下に区切り線付きで表示されるようになった。
-
-Spelling practice
-コード · HTML 
-3回連続正解で星に変えて
-
-17:54
-手早く変更するね。
-
-
-ファイルを編集しました, ファイルを読み取りました
-ファイルを編集しました, ファイルを読み取りました
-完了！これで3回連続正解で⭐に変わるよ。ストリークバーのドット（●●●）も自動的に3個になってる。
-
-Spelling practice
-コード · HTML 
-
-
-
-
-
-Claude は AI のため、誤りを含む可能性があります。回答内容は必ずご確認ください。
-Spelling practice · HTML
-コピー
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -361,7 +6,7 @@ Spelling practice · HTML
 <title>Spelling Stars ⭐</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600&display=swap');
- 
+
 :root {
   --sky:#6EC6F5; --sun:#FFD93D; --grass:#6BCB77;
   --pink:#FF6B9D; --purple:#A855F7; --orange:#FF8C42;
@@ -374,9 +19,9 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .stars-bg{position:fixed;top:0;left:0;right:0;height:220px;pointer-events:none;z-index:1;overflow:hidden;}
 .star-deco{position:absolute;animation:floatStar 4s ease-in-out infinite;opacity:.5;}
 @keyframes floatStar{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(20deg);}}
- 
+
 .screen{display:none;}.screen.active{display:block;}
- 
+
 /* HOME */
 #home{position:relative;z-index:2;text-align:center;padding:80px 20px 40px;}
 .app-title{font-family:'Nunito',sans-serif;font-size:clamp(2.2rem,8vw,3.5rem);font-weight:900;
@@ -384,7 +29,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .app-subtitle{font-family:'Nunito',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.85);margin-bottom:32px;}
 .home-card{background:white;border-radius:28px;padding:22px 18px;max-width:420px;
   margin:0 auto 16px;box-shadow:0 8px 32px rgba(110,198,245,.18);border:3px solid #E8F6FF;}
- 
+
 /* 100-word star card grid */
 .star-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:12px;}
 .star-cell{
@@ -405,12 +50,12 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .star-cell.tricky-cell .sc-word{color:#E57373;}
 .star-cell.just-lit{animation:popStar .4s ease;}
 @keyframes popStar{0%{transform:scale(1);}50%{transform:scale(1.25);}100%{transform:scale(1);}}
- 
+
 .progress-row{display:flex;justify-content:space-between;align-items:center;
   font-size:.85rem;color:#888;margin-bottom:14px;}
 .progress-bar-wrap{flex:1;height:8px;background:#EEE;border-radius:99px;margin:0 8px;}
 .progress-bar{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--grass),#38D9A9);transition:width .5s;}
- 
+
 .mode-btn{display:flex;align-items:center;gap:12px;width:100%;padding:14px 16px;
   border:none;border-radius:18px;font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
   cursor:pointer;margin-bottom:9px;transition:transform .15s;color:white;text-align:left;}
@@ -424,7 +69,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .mode-btn .desc{font-size:.72rem;font-weight:600;opacity:.85;display:block;margin-top:2px;}
 .badge-pill{background:rgba(255,255,255,.28);border-radius:8px;padding:2px 8px;
   font-size:.78rem;margin-left:auto;white-space:nowrap;}
- 
+
 /* QUIZ */
 #quiz{position:relative;z-index:2;padding:16px 14px 36px;max-width:500px;margin:0 auto;}
 .quiz-header{display:flex;align-items:center;gap:10px;padding-top:58px;margin-bottom:12px;}
@@ -435,7 +80,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
   text-shadow:0 2px 4px rgba(0,0,0,.12);}
 .q-counter{margin-left:auto;background:rgba(255,255,255,.85);border-radius:10px;
   padding:3px 11px;font-family:'Nunito',sans-serif;font-size:.88rem;font-weight:800;color:var(--text);}
- 
+
 /* Streak bar */
 .streak-bar{background:white;border-radius:16px;padding:10px 14px;
   margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,.07);display:none;}
@@ -447,17 +92,17 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .pip{width:32px;height:10px;border-radius:99px;background:#EEE;transition:background .3s;}
 .pip.on{background:var(--orange);}
 .pip.done{background:var(--grass);}
- 
+
 .quiz-card{background:white;border-radius:24px;padding:22px 18px;
   box-shadow:0 6px 28px rgba(0,0,0,.08);border:3px solid #F0F0FF;margin-bottom:10px;text-align:center;}
- 
+
 .hint-badge{display:flex;flex-direction:column;align-items:center;gap:4px;
   background:linear-gradient(135deg,#FFF8DC,#FFF0A0);border:2px solid #FFD93D;
   border-radius:14px;padding:9px 14px;margin-bottom:14px;box-shadow:0 2px 8px rgba(255,217,61,.2);}
 .hint-badge::before{content:'💡';font-size:.95rem;margin-bottom:2px;}
 .hint-en{font-family:'Nunito',sans-serif;font-size:.92rem;font-weight:800;color:#5A3E00;}
 .hint-jp{font-family:'Nunito Sans',sans-serif;font-size:.78rem;font-weight:600;color:#8A6A20;}
- 
+
 .blanks-row{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;margin-bottom:14px;}
 .bl{width:40px;height:48px;border:3px solid #DDD;border-radius:11px;
   font-family:'Nunito',sans-serif;font-size:1.35rem;font-weight:900;
@@ -465,7 +110,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
   transition:all .2s;background:#FAFAFA;}
 .bl.rev{border-color:var(--purple);background:#F5EEFF;color:var(--purple);}
 .bl.blank{border-color:var(--sky);background:white;color:var(--sky);font-size:.85rem;}
- 
+
 .choices-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:6px;}
 .choice-btn{padding:13px 8px;border:3px solid #EEE;border-radius:14px;background:white;
   cursor:pointer;font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
@@ -473,13 +118,13 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .choice-btn:hover{border-color:var(--purple);background:#F5EEFF;}
 .choice-btn.correct{border-color:var(--grass);background:#EDFFF3;color:#27AE60;animation:pop .3s;}
 .choice-btn.wrong{border-color:var(--red);background:#FFF0F0;color:var(--red);animation:shake .3s;}
- 
+
 .speak-btn{background:linear-gradient(135deg,var(--sky),#3B9ED4);border:none;border-radius:13px;
   padding:10px 20px;color:white;font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:800;
   cursor:pointer;display:flex;align-items:center;gap:7px;margin:0 auto 12px;
   box-shadow:0 3px 10px rgba(59,158,212,.3);transition:transform .15s;}
 .speak-btn:active{transform:scale(.95);}
- 
+
 .spell-input{width:100%;padding:15px;border:3px solid #DDD;border-radius:16px;
   font-family:'Nunito',sans-serif;font-size:1.45rem;font-weight:800;
   color:var(--text);text-align:center;letter-spacing:4px;outline:none;
@@ -487,13 +132,13 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .spell-input:focus{border-color:var(--pink);}
 .spell-input.correct{border-color:var(--grass);background:#EDFFF3;}
 .spell-input.wrong{border-color:var(--red);background:#FFF0F0;animation:shake .3s;}
- 
+
 .submit-btn{width:100%;padding:14px;border:none;border-radius:16px;
   background:linear-gradient(135deg,var(--pink),#E94060);color:white;
   font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:900;
   cursor:pointer;box-shadow:0 4px 14px rgba(255,107,157,.35);transition:transform .15s;}
 .submit-btn:active{transform:scale(.97);}
- 
+
 /* Master panel */
 .master-panel{background:white;border-radius:18px;padding:12px 14px;
   box-shadow:0 3px 14px rgba(0,0,0,.07);margin-bottom:10px;}
@@ -507,7 +152,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .mpip{width:14px;height:7px;border-radius:99px;background:#EEE;}
 .mpip.on{background:var(--orange);}
 .mpip.done{background:var(--grass);}
- 
+
 /* RESULT */
 #result{position:relative;z-index:2;text-align:center;padding:80px 20px 40px;}
 .result-card{background:white;border-radius:28px;padding:28px 22px;max-width:420px;
@@ -528,18 +173,18 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .act-btn.green{background:linear-gradient(135deg,var(--grass),#27AE60);box-shadow:0 4px 14px rgba(107,203,119,.35);}
 .act-btn.orange{background:linear-gradient(135deg,var(--orange),#E56F28);box-shadow:0 4px 14px rgba(255,140,66,.35);}
 .act-btn.gray{background:#EFEFEF;color:#999;box-shadow:none;}
- 
+
 /* MASTER FINISH */
 #masterFinish{position:relative;z-index:2;text-align:center;padding:80px 20px 40px;}
 .finish-card{background:white;border-radius:28px;padding:32px 22px;max-width:420px;
   margin:0 auto;box-shadow:0 8px 32px rgba(0,0,0,.08);}
- 
+
 /* PERFECT */
 #perfect{position:relative;z-index:2;text-align:center;padding:80px 20px 40px;}
 .perfect-card{background:white;border-radius:28px;padding:32px 22px;max-width:420px;
   margin:0 auto;box-shadow:0 8px 32px rgba(255,217,61,.3);border:3px solid var(--sun);}
 .perfect-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;margin:16px 0;}
- 
+
 /* REVIEW */
 #review{position:relative;z-index:2;padding:16px 14px 36px;max-width:500px;margin:0 auto;}
 .rev-header{display:flex;align-items:center;gap:10px;padding-top:58px;margin-bottom:16px;}
@@ -550,7 +195,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .word-chip.mastered{border-color:var(--grass);background:#EDFFF3;color:#27AE60;}
 .word-chip.tricky{border-color:#FFCDD2;background:#FFF5F5;color:var(--red);}
 .word-chip:hover{transform:scale(1.04);}
- 
+
 /* FEEDBACK */
 .fb-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;
   justify-content:center;pointer-events:none;opacity:0;transition:opacity .2s;}
@@ -562,7 +207,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 .fb-emoji{font-size:3.2rem;display:block;margin-bottom:6px;}
 .fb-msg{font-family:'Nunito',sans-serif;font-size:1.45rem;font-weight:900;color:var(--text);}
 .fb-word{font-size:.95rem;color:#aaa;margin-top:4px;}
- 
+
 /* ANIMATIONS */
 @keyframes pop{0%{transform:scale(1);}50%{transform:scale(1.08);}100%{transform:scale(1);}}
 @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
@@ -573,9 +218,9 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
 </style>
 </head>
 <body>
- 
+
 <div class="stars-bg" id="starsBg"></div>
- 
+
 <!-- ====== HOME ====== -->
 <div id="home" class="screen active">
   <div class="app-title">⭐ Spelling Stars</div>
@@ -613,7 +258,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
     </div>
   </div>
 </div>
- 
+
 <!-- ====== QUIZ ====== -->
 <div id="quiz" class="screen">
   <div class="quiz-header">
@@ -621,12 +266,12 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
     <div class="quiz-title" id="quizLabel">Fill in the Blank</div>
     <div class="q-counter"><span id="qCur">1</span> / <span id="qTot">10</span></div>
   </div>
- 
+
   <div class="streak-bar" id="streakBar">
     <div class="streak-label">Streak — <span class="streak-word-name" id="streakWordName"></span></div>
     <div class="pips-row" id="pipsRow"></div>
   </div>
- 
+
   <div class="quiz-card">
     <div id="fillSec">
       <div class="hint-badge" id="fillHint"></div>
@@ -644,13 +289,13 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
       <button class="submit-btn" onclick="checkSpell()">✓ Check!</button>
     </div>
   </div>
- 
+
   <div class="master-panel" id="masterPanel" style="display:none">
     <h4>🔥 Tricky words this session</h4>
     <div id="masterWordList"></div>
   </div>
 </div>
- 
+
 <!-- ====== RESULT ====== -->
 <div id="result" class="screen">
   <div class="result-card">
@@ -668,7 +313,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
     <button class="act-btn gray" onclick="goHome()">🏠 Home</button>
   </div>
 </div>
- 
+
 <!-- ====== MASTER FINISH ====== -->
 <div id="masterFinish" class="screen">
   <div class="finish-card">
@@ -680,7 +325,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
     <button class="act-btn green" onclick="goHome()">🏠 Home</button>
   </div>
 </div>
- 
+
 <!-- ====== PERFECT ====== -->
 <div id="perfect" class="screen">
   <div class="perfect-card">
@@ -693,7 +338,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
     <button class="act-btn green" onclick="goHome()">🏠 Home</button>
   </div>
 </div>
- 
+
 <!-- ====== REVIEW ====== -->
 <div id="review" class="screen">
   <div class="rev-header">
@@ -702,7 +347,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
   </div>
   <div class="words-grid" id="wordsGrid"></div>
 </div>
- 
+
 <!-- ====== FEEDBACK ====== -->
 <div class="fb-overlay" id="fbOverlay">
   <div class="fb-bubble">
@@ -711,7 +356,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
     <div class="fb-word" id="fbWord"></div>
   </div>
 </div>
- 
+
 <script>
 // ============ DATA ============
 const WD = [
@@ -819,37 +464,37 @@ const WD = [
 const WORDS = WD.map(d=>d.w);
 const HINTS = Object.fromEntries(WD.map(d=>[d.w,{en:d.en,jp:d.jp}]));
 const STREAK_NEEDED = 3;
- 
+
 // ============ PERSISTENT STATE ============
 // masteredSet: words graduated (5-streak complete)
 // trickyMap:   {word: {streak:0-5, wrongs:n}}  — persists between sessions
 let masteredSet = new Set(JSON.parse(localStorage.getItem('mSet')||'[]'));
 let trickyMap   = JSON.parse(localStorage.getItem('tMap')||'{}');
- 
+
 function save() {
   localStorage.setItem('mSet', JSON.stringify([...masteredSet]));
   localStorage.setItem('tMap', JSON.stringify(trickyMap));
 }
- 
+
 // ============ SESSION STATE ============
 let currentMode = 'fill';
 let quizWords   = [];
 let qIndex = 0, score = 0;
 let missed = [];          // words wrong this session
 let currentWord = '';
- 
+
 // master mode
 let masterQueue   = [];   // [{word, streak, done}]
 let masterCurrent = null;
 let masterRound   = 0;
- 
+
 // ============ INIT ============
 function init() {
   buildStarsBg();
   updateHome();
   buildReview();
 }
- 
+
 function buildStarsBg() {
   const bg = document.getElementById('starsBg');
   ['⭐','🌟','✨','💫'].forEach(s => {
@@ -863,12 +508,12 @@ function buildStarsBg() {
     }
   });
 }
- 
+
 function updateHome() {
   const n = masteredSet.size;
   const tricky = Object.keys(trickyMap).filter(w=>!masteredSet.has(w));
   const notMastered = WORDS.filter(w=>!masteredSet.has(w));
- 
+
   // rebuild star-word card grid
   const grid = document.getElementById('starGrid');
   grid.innerHTML='';
@@ -881,13 +526,13 @@ function updateHome() {
                  <span class="sc-word">${w}</span>`;
     grid.appendChild(c);
   });
- 
+
   document.getElementById('progressBar').style.width=(n/100*100)+'%';
   document.getElementById('progressLabel').textContent=n+' / 100';
- 
+
   // challenge button — always visible, shows count of non-mastered
   document.getElementById('challengeCount').textContent=notMastered.length+' words';
- 
+
   // master (tricky) button
   const btn=document.getElementById('masterBtn');
   if(tricky.length){
@@ -897,7 +542,7 @@ function updateHome() {
     btn.style.display='none';
   }
 }
- 
+
 function buildReview() {
   const g=document.getElementById('wordsGrid'); g.innerHTML='';
   WORDS.forEach(w=>{
@@ -909,7 +554,7 @@ function buildReview() {
     g.appendChild(c);
   });
 }
- 
+
 // ============ SCREENS ============
 function goHome(){ showScreen('home'); updateHome(); buildReview(); }
 function showReview(){ buildReview(); showScreen('review'); }
@@ -917,7 +562,7 @@ function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
- 
+
 // ============ NORMAL QUIZ ============
 function startMode(mode) {
   currentMode=mode; quizWords=shuffle([...WORDS]).slice(0,10);
@@ -932,14 +577,14 @@ function startMode(mode) {
   document.getElementById('spellSec').style.display=mode==='spell'?'block':'none';
   loadQ();
 }
- 
+
 function loadQ(){
   if(qIndex>=quizWords.length){showResult();return;}
   currentWord=quizWords[qIndex];
   document.getElementById('qCur').textContent=qIndex+1;
   if(currentMode==='fill') loadFill(); else loadSpell();
 }
- 
+
 // ============ CHALLENGE MODE (not-yet-mastered words only) ============
 function startChallenge() {
   const pool = WORDS.filter(w => !masteredSet.has(w));
@@ -955,7 +600,7 @@ function startChallenge() {
   document.getElementById('masterPanel').style.display='none';
   loadChallengeQ();
 }
- 
+
 function loadChallengeQ() {
   if(qIndex>=quizWords.length){showResult();return;}
   currentWord=quizWords[qIndex];
@@ -966,7 +611,7 @@ function loadChallengeQ() {
   document.getElementById('spellSec').style.display = useSpell?'block':'none';
   if(useSpell) loadSpell(); else loadFill();
 }
- 
+
 // ============ FILL ============
 function loadFill(){
   const w=currentWord, h=HINTS[w];
@@ -990,7 +635,7 @@ function loadFill(){
     grid.appendChild(btn);
   });
 }
- 
+
 function handleFill(btn,chosen,correct,word){
   document.querySelectorAll('.choice-btn').forEach(b=>b.onclick=null);
   const ok=chosen===correct;
@@ -1005,10 +650,10 @@ function handleFill(btn,chosen,correct,word){
     if(currentMode==='challenge') loadChallengeQ(); else loadQ();
   },1200);
 }
- 
+
 // ============ SPELL ============
 let spellLocked=false;
- 
+
 function loadSpell(){
   spellLocked=false;
   setHintBadge('spellHint',HINTS[currentWord]);
@@ -1016,7 +661,7 @@ function loadSpell(){
   inp.value='';inp.className='spell-input';inp.disabled=false;
   setTimeout(()=>{inp.focus();speakWord();},300);
 }
- 
+
 function checkSpell(){
   if(spellLocked)return;
   const inp=document.getElementById('spellInput');
@@ -1033,12 +678,12 @@ function checkSpell(){
     if(currentMode==='challenge') loadChallengeQ(); else loadQ();
   },1400);
 }
- 
+
 function setHintBadge(id,h){
   document.getElementById(id).innerHTML=
     `<span class="hint-en">${h.en}</span><span class="hint-jp">${h.jp}</span>`;
 }
- 
+
 // ============ RECORD ============
 function recordResult(ok,word){
   if(ok){
@@ -1051,7 +696,7 @@ function recordResult(ok,word){
     save();
   }
 }
- 
+
 // ============ MASTER MODE ============
 function startMaster(){
   const words=Object.keys(trickyMap).filter(w=>!masteredSet.has(w));
@@ -1068,7 +713,7 @@ function startMaster(){
   renderMasterPanel();
   nextMasterQ();
 }
- 
+
 function nextMasterQ(){
   const rem=masterQueue.filter(i=>!i.done);
   if(!rem.length){showMasterFinish();return;}
@@ -1076,17 +721,17 @@ function nextMasterQ(){
   const minS=Math.min(...rem.map(i=>i.streak));
   masterCurrent=shuffle(rem.filter(i=>i.streak===minS))[0];
   currentWord=masterCurrent.word;
- 
+
   document.getElementById('qCur').textContent=masterRound;
   document.getElementById('streakWordName').textContent=currentWord;
   renderPips();
- 
+
   const useSpell=masterRound%2===0;
   document.getElementById('fillSec').style.display=useSpell?'none':'block';
   document.getElementById('spellSec').style.display=useSpell?'block':'none';
   if(useSpell) loadSpell(); else loadFill();
 }
- 
+
 function handleMasterResult(ok){
   if(ok){
     masterCurrent.streak++;
@@ -1121,7 +766,7 @@ function handleMasterResult(ok){
     setTimeout(()=>{hideFB();nextMasterQ();},1200);
   }
 }
- 
+
 function renderPips(){
   const row=document.getElementById('pipsRow'); row.innerHTML='';
   for(let i=0;i<STREAK_NEEDED;i++){
@@ -1131,7 +776,7 @@ function renderPips(){
     row.appendChild(p);
   }
 }
- 
+
 function renderMasterPanel(){
   const list=document.getElementById('masterWordList'); list.innerHTML='';
   masterQueue.forEach(item=>{
@@ -1144,14 +789,14 @@ function renderMasterPanel(){
     list.appendChild(row);
   });
 }
- 
+
 function showMasterFinish(){
   document.getElementById('finishSub').textContent=
     `Practiced ${masterRound} rounds — every tricky word mastered! 💪`;
   showScreen('masterFinish');
   spawnConfetti(); setTimeout(spawnConfetti,400);
 }
- 
+
 function showPerfect(){
   showScreen('perfect');
   const g=document.getElementById('perfectGrid'); g.innerHTML='';
@@ -1161,7 +806,7 @@ function showPerfect(){
   });
   for(let i=0;i<6;i++) setTimeout(spawnConfetti,i*250);
 }
- 
+
 // ============ RESULT ============
 function showResult(){
   showScreen('result');
@@ -1171,7 +816,7 @@ function showResult(){
   document.getElementById('resultScore').textContent=score+' / '+quizWords.length;
   const s=Math.round(score/quizWords.length*5);
   document.getElementById('resultStars').textContent='⭐'.repeat(s)+'☆'.repeat(5-s);
- 
+
   if(missed.length){
     document.getElementById('missedBox').style.display='block';
     document.getElementById('missedWords').innerHTML=
@@ -1183,7 +828,7 @@ function showResult(){
   }
   if(pct===100) spawnConfetti();
 }
- 
+
 // ============ SPEECH ============
 const VP=["Samantha","Karen","Daniel","Moira","Rishi",
   "Google US English","Google UK English Female","Google UK English Male",
@@ -1214,7 +859,7 @@ function speakSingle(w){
   if(window.speechSynthesis.getVoices().length)go();
   else window.speechSynthesis.addEventListener('voiceschanged',go,{once:true});
 }
- 
+
 // ============ FEEDBACK ============
 const OK=['Perfect! ⭐','Amazing! 🌟','Great job! 🎉','You got it! 💫','Brilliant! ✨'];
 const NG=['Almost! 💪','Try again! 🔁','Keep going! 😊','Good try! 👍'];
@@ -1226,7 +871,7 @@ function showFB(ok,word){
   if(ok)spawnConfetti();
 }
 function hideFB(){document.getElementById('fbOverlay').classList.remove('on');}
- 
+
 // ============ CONFETTI ============
 function spawnConfetti(){
   const cols=['#FFD93D','#FF6B9D','#6EC6F5','#6BCB77','#A855F7','#FF8C42'];
@@ -1243,15 +888,14 @@ function spawnConfetti(){
     },i*30);
   }
 }
- 
+
 // ============ UTILS ============
 function shuffle(a){
   for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
   return a;
 }
- 
+
 init();
 </script>
 </body>
 </html>
- 
