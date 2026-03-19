@@ -1,3 +1,358 @@
+
+20260318_1836303616726546545973990.jpg
+小学2年生がこのスペリングテストするんだけど、それを練習するアプリ作れる？どんな構成にしたら、覚えられるかな？
+
+3月18日
+いいですね！まずアプリの構成を考えましょう。
+
+Q: どんな練習モードを入れたい？
+A: スペリング入力（聞いて書く）, 穴埋めクイズ
+
+Q: アプリの使い方は？
+A: 子供が一人で使う
+
+3月18日
+わかった！子供が一人で使える、楽しい練習アプリを作るね。
+
+
+Reading frontend design skill
+Reading frontend design skill
+アプリ設計の方針：
+
+対象: 小学2年生が一人で使える
+デザイン: カラフル・楽しい・シンプルな操作
+モード: 穴埋めクイズ＋スペリング入力（音声読み上げ付き）
+モチベーション: ★スター獲得・進捗表示
+作るね！
+
+
+ファイルを作成しました, ファイルを読み取りました
+ファイルを作成しました, ファイルを読み取りました
+できた！⭐ Spelling Stars アプリです。
+
+アプリの構成
+🔤 Fill in the Blank（穴埋めクイズ）
+
+単語の1文字だけ隠して、4択から選ぶ
+小学2年生でも一人で操作しやすい
+🎧 Spell the Word（スペリング入力）
+
+音声読み上げを聞いて（🔊ボタン）、単語を全部タイプ
+自動で発音してくれる（英語音声）
+📖 Word List（単語一覧）
+
+全100単語を一覧表示、タップで発音確認
+ゲーム要素
+⭐ 正解するたびにスターが貯まる
+🎉 コンフェッティ（紙吹雪）アニメーション
+「もう一度練習する単語」リストを表示
+進捗が保存される（ブラウザのローカルストレージ）
+ヒント: iPhoneやiPadのブラウザでも使えます。ホーム画面に追加するとアプリっぽく使えますよ！
+
+Spelling practice
+コード · HTML 
+Fill in the brank に言葉のヒント書いたら？だって考えられる言葉は山ほどあるでしょ？
+
+3月18日
+確かに！文字だけじゃどの単語か全然わからないね。日本語のヒント（意味）を追加しよう。
+
+
+3個のファイルを表示しました
+3個のファイルを表示しました
+わかった、全部把握した。WORDSを日本語ヒント付きのオブジェクトに変えて、Fill in the Blankに表示するように更新するね。
+
+
+Replace WORDS array with object including Japanese hints, and update all references
+Replace WORDS array with object including Japanese hints, and update all references
+次にFill modeにヒントを表示する部分を追加：
+
+
+3個のファイルを編集しました, ファイルを読み取りました
+3個のファイルを編集しました, ファイルを読み取りました
+更新したよ！
+
+穴埋めクイズの画面に、こんな感じのヒントが出るようになった：
+
+💡 行った（goの過去形）　→　W _ N T
+
+全100単語に日本語の意味を追加してあるので、何の単語かちゃんとわかって考えられるようになったはず。品詞の説明も短く添えたから、少しずつ文法感覚も身につくかも。
+
+Spelling practice
+コード · HTML 
+漢字は使わないで、使う人はgrade2の英語ネイティブ日本語は第二言語。英語と日本語のどちらもヒント
+
+3月18日
+なるほど！英語ネイティブの子だから、英語ヒントをメインに、日本語はサブで添える感じにしよう。漢字なし、ひらがな・カタカナのみで更新するね。
+
+
+Replace all hints with English + Japanese (no kanji) bilingual hints
+Replace all hints with English + Japanese (no kanji) bilingual hints
+次にHINTSの参照とバッジのHTMLを両言語表示に更新：
+
+
+3個のファイルを編集しました, ファイルを読み取りました
+3個のファイルを編集しました, ファイルを読み取りました
+更新したよ！穴埋めのヒントはこんな表示になった：
+
+💡
+used before a specific thing   ← 英語メイン（grade2が読める）
+その〜、あの〜                  ← 日本語サブ（ひらがなのみ）
+英語ネイティブの子なので英語の説明を上にメインで、日本語は補足として下に小さく表示。漢字はゼロ、ひらがな・カタカナのみにしてあるよ。
+
+Spelling practice
+コード · HTML 
+githubでどうやって共有できるようにするんだっけ？github pagese
+
+3月18日
+GitHub Pagesの手順、説明するね！
+
+GitHub Pagesで公開する手順
+1. リポジトリを作る
+github.com にログイン
+右上の 「+」→「New repository」
+Repository name: spelling-stars（なんでもOK）
+Public を選択（Pagesは無料でPublicのみ）
+「Create repository」
+2. HTMLファイルをアップロード
+作ったリポジトリを開く
+「Add file」→「Upload files」
+spelling-practice.html をドラッグ＆ドロップ
+⚠️ ファイル名を index.html にリネームしてからアップロード（これが重要！）
+「Commit changes」
+3. GitHub Pagesを有効にする
+リポジトリの **「Settings」**タブ
+左メニューの 「Pages」
+Branch: main を選択 → 「Save」
+1〜2分待つ
+4. URLが発行される
+https://あなたのユーザー名.github.io/spelling-stars/
+このURLをシェアすれば誰でもスマホ・PCからアクセスできる！
+
+ポイント
+ファイル名は必ず index.html にすること
+変更したいときはファイルを上書きアップロードするだけで自動更新される
+以前作った oil-shock-chart と同じ手順だよ！
+もっとリアルな声にならない？
+
+3月18日
+音声の改善方法はいくつかあるよ！
+
+**「無料・そのまま使える（ブラウザ音声を最適化）」**を選んだね！
+
+ブラウザのWeb Speech APIは声の質がデバイスによって全然違う。iPhoneやMacならSiri音声が使えてかなりリアルになるよ。一番いい声を自動で選ぶように改善するね。
+
+
+2個のファイルを表示しました, ファイルを編集しました, ファイルを読み取りました
+2個のファイルを表示しました, ファイルを編集しました, ファイルを読み取りました
+更新したよ！仕組みはこんな感じ：
+
+声の選び方（優先順位）
+
+Samantha / Karen（Mac・iPhoneのSiri音声）→ 一番自然
+Daniel / Moira（Mac英国・アイルランド音声）
+Google US/UK English（Chrome系）
+Microsoft Aria Natural（Edge・Windows）
+それ以外のen-AU → en-GB → en-US の順でフォールバック
+デバイス別の期待値
+
+iPhone / iPad → Siri「Karen」でかなりリアル 🎯
+Mac + Chrome → Google音声
+Mac + Safari → Samantha
+Windows Edge → Microsoft Aria Natural
+GitHub Pagesに上げたあと、子供のiPadで開くと一番いい声になるはず！
+
+Spelling practice
+コード · HTML 
+[User denied question request]
+
+17:33
+わかった！今のブラウザ音声のままで進めよう。
+
+他に改善したいところある？例えば：
+
+Spell the Wordモードにもヒントを追加
+問題数を変えられるようにする
+ハイスコア記録
+間違ったやつリストを作って欲しい5回間違わなかったらそのリストから消える、間違わなくなるまでできるアプリにしたい全部パーフェクトになったら星が埋まるようにする
+
+17:35
+いいね！「にがてリスト」機能、作るよ。
+
+仕様を確認：
+
+間違えた単語 → にがてリストに追加
+にがてリストを5回連続正解 → リストから卒業
+全100単語が卒業したら ⭐ 全部埋まる
+ホーム画面に「にがてリストだけ練習」モードを追加
+
+Read full file to understand current structure
+Read full file to understand current structure
+すでにマスターモードの骨格がある！でも「5回連続正解で卒業」「全100単語パーフェクトで星が埋まる」という仕様に合わせて全面的に整理・強化するね。今のコードは部分的に中途半端なので、きれいに作り直す。
+
+
+See the HTML structure for screens
+See the HTML structure for screens
+全体の構造が把握できた。スクラッチで整理した新バージョンを作るね。
+
+
+2個のファイルを作成しました, コマンドを実行しました, ファイルを読み取りました
+2個のファイルを作成しました, コマンドを実行しました, ファイルを読み取りました
+できた！新しい仕組みはこんな感じ：
+
+🔥 にがてリスト（Tricky Words）の仕組み
+間違えたら自動追加 → ホーム画面に「🔥 Practice Tricky Words」ボタンが出る
+
+5回連続正解で卒業 → その単語は trickyMap から消えて masteredSet に入る
+
+間違えたらストリークがゼロにリセット
+Fill in the Blank と Spell the Word を交互に出題
+現在のストリークは**ピップ（●●●●●）**でリアルタイム表示
+進捗はブラウザに保存 → アプリを閉じても消えない
+
+⭐ 100個の星
+ホーム画面に☆が100個並んでいる
+単語を卒業するたびに☆→⭐に変わる
+全100個が⭐になると「ALL 100 STARS! 🌟」の特別画面が出て大量の紙吹雪！
+Spelling practice
+コード · HTML 
+まだ5回連続成果していないワードしか出てこないモードを作って。あと星の下にワードを書いたらいいかも。星と各ワードをまとめて枠内に入れるように表示したらわかりやすいかも
+
+17:49
+いいね！整理すると：
+
+「まだ5回連続成功していないワード限定」モード — マスター済み以外からランダム出題
+星グリッド改善 — 各セルに星＋単語名、枠付きでわかりやすく
+
+3個のファイルを表示しました
+3個のファイルを表示しました
+全体把握できた。2つの変更を加えるね：
+
+星グリッド → 星＋単語名のカードに変更
+新モード「まだマスターしてないワードだけ」ボタン追加
+
+2個のファイルを編集しました
+2個のファイルを編集しました
+次に「まだマスターしていないワード」モードのボタンをHTMLに追加：
+
+
+Add new "not yet mastered" mode button between spell and master
+Add new "not yet mastered" mode button between spell and master
+新ボタンのスタイルと、updateHome・star grid の描画を更新：
+
+
+Add challenge button style
+Add challenge button style
+次にupdateHomeの星グリッド描画とchallenge count更新：
+
+
+Update updateHome to render new star cards and challenge count
+Update updateHome to render new star cards and challenge count
+最後にstartChallenge関数を追加：
+
+
+Add startChallenge function after startMode
+Add startChallenge function after startMode
+challengeモードでの回答処理も正しく流れるように、handleFillとcheckSpellのloadQ呼び出しをチェック：
+
+
+2個のファイルを編集しました, ファイルを読み取りました
+2個のファイルを編集しました, ファイルを読み取りました
+更新したよ！変更点：
+
+🎯 Challenge Mode（新モード）
+マスター済み以外のワードだけからランダム10問
+Fill と Spell を1問ずつ交互に出題
+間違えたら自動的にTrickyリストへ
+残り何単語あるかバッジに表示
+全部マスターしたら自動的に消える
+⭐ 星グリッド改善
+5列×20行のカード表示に変更
+各カードに 星＋単語名 を表示
+状態で色分け：
+☆（灰）= まだ
+🔥（赤）= にがてリスト入り
+⭐（黄）= マスター済み
+ホームのボタンは上から順に：
+
+🔤 Fill in the Blank（ランダム全100）
+🎧 Spell the Word（ランダム全100）
+🎯 Challenge Mode（未マスターのみ） ← 新しい
+🔥 Practice Tricky Words（にがてリスト）
+📖 Word List
+Spelling practice
+コード · HTML 
+ちゃんと動いてない気が
+
+17:52
+どこが動いてないか確認するね。
+
+
+Check full file for any obvious bugs
+Check full file for any obvious bugs
+見つけた！607〜610行目に壊れたコードが残ってる。前回の編集で loadQ() の中身が誤って残留してる。完全に直すね。
+
+
+Remove broken leftover loadQ fragment
+Remove broken leftover loadQ fragment
+他にも問題がないか全体をチェック：
+
+
+2個のファイルを表示しました
+2個のファイルを表示しました
+もう一つバグ発見：loadQ() 関数自体が消えてしまっている（startModeが呼んでいるのに関数がない）。また startMode で challenge モード時のfill/spell表示切り替えも抜けている。まとめて修正：
+
+
+Add missing loadQ function and fix startMode to handle challenge display
+Add missing loadQ function and fix startMode to handle challenge display
+次に startMode でfill/spell以外（challengeが来た場合）にfillSecが非表示になったままになるバグも修正：
+
+
+ファイルを編集しました, ファイルを表示しました
+ファイルを編集しました, ファイルを表示しました
+コード自体は正しく直ってる。あとはresultから「Play Again」を押した時にchallengeモードに戻れるよう修正：
+
+
+ファイルを編集しました, ファイルを読み取りました
+ファイルを編集しました, ファイルを読み取りました
+直したよ！バグの原因は2つあった：
+
+致命的バグ — 前回の編集で loadQ() 関数の中身が途中で消えて、壊れたコード片が残ってた → 削除して loadQ() を正しく復元
+Challenge Modeのリプレイ — 結果画面の「Play Again」が startMode() を呼んでたので startChallenge() に修正
+これで全モード動くはず。もし他に変な動きがあったら教えて！
+
+Spelling practice
+コード · HTML 
+星カードを一番下に持ってきて
+
+17:53
+
+2個のファイルを編集しました, ファイルを読み取りました
+2個のファイルを編集しました, ファイルを読み取りました
+移動したよ！ボタンが上、星カードが一番下に区切り線付きで表示されるようになった。
+
+Spelling practice
+コード · HTML 
+3回連続正解で星に変えて
+
+17:54
+手早く変更するね。
+
+
+ファイルを編集しました, ファイルを読み取りました
+ファイルを編集しました, ファイルを読み取りました
+完了！これで3回連続正解で⭐に変わるよ。ストリークバーのドット（●●●）も自動的に3個になってる。
+
+Spelling practice
+コード · HTML 
+
+
+
+
+
+Claude は AI のため、誤りを含む可能性があります。回答内容は必ずご確認ください。
+Spelling practice · HTML
+コピー
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,523 +360,361 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spelling Stars ⭐</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600&display=swap');
-
-  :root {
-    --sky: #6EC6F5;
-    --sun: #FFD93D;
-    --grass: #6BCB77;
-    --pink: #FF6B9D;
-    --purple: #A855F7;
-    --orange: #FF8C42;
-    --bg: #FFF9F0;
-    --card: #FFFFFF;
-    --text: #2D2D4E;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Nunito Sans', sans-serif;
-    background: var(--bg);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* Decorative background */
-  body::before {
-    content: '';
-    position: fixed; top: 0; left: 0; right: 0; height: 220px;
-    background: linear-gradient(160deg, #6EC6F5 0%, #B5E8FF 60%, #FFF9F0 100%);
-    z-index: 0;
-  }
-
-  .stars-bg {
-    position: fixed; top: 0; left: 0; right: 0; height: 220px;
-    pointer-events: none; z-index: 1;
-    overflow: hidden;
-  }
-  .star-deco {
-    position: absolute;
-    font-size: 1.4rem;
-    animation: floatStar 4s ease-in-out infinite;
-    opacity: 0.5;
-  }
-
-  @keyframes floatStar {
-    0%,100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(20deg); }
-  }
-
-  /* ===== SCREENS ===== */
-  .screen { display: none; }
-  .screen.active { display: block; }
-
-  /* ===== HOME ===== */
-  #home {
-    position: relative; z-index: 2;
-    text-align: center;
-    padding: 80px 20px 40px;
-  }
-
-  .app-title {
-    font-family: 'Nunito', sans-serif;
-    font-size: clamp(2.2rem, 8vw, 3.5rem);
-    font-weight: 900;
-    color: white;
-    text-shadow: 0 4px 0 rgba(0,0,0,0.15);
-    letter-spacing: -1px;
-    margin-bottom: 4px;
-  }
-  .app-subtitle {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 40px;
-  }
-
-  .home-card {
-    background: white;
-    border-radius: 28px;
-    padding: 28px 24px;
-    max-width: 420px;
-    margin: 0 auto 20px;
-    box-shadow: 0 8px 32px rgba(110,198,245,0.18);
-    border: 3px solid #E8F6FF;
-  }
-
-  .total-stars {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 2rem; font-weight: 900; color: var(--text);
-    margin-bottom: 20px;
-  }
-  .total-stars span.big { font-size: 2.4rem; color: var(--sun); }
-
-  .mode-btn {
-    display: flex; align-items: center; gap: 14px;
-    width: 100%; padding: 16px 20px;
-    border: none; border-radius: 18px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.15rem; font-weight: 800;
-    cursor: pointer; margin-bottom: 12px;
-    transition: transform 0.15s, box-shadow 0.15s;
-    color: white;
-    text-align: left;
-  }
-  .mode-btn:active { transform: scale(0.97); }
-  .mode-btn.fill { background: linear-gradient(135deg, #A855F7, #7C3AED); box-shadow: 0 4px 16px rgba(168,85,247,0.35); }
-  .mode-btn.spell { background: linear-gradient(135deg, #FF6B9D, #E94060); box-shadow: 0 4px 16px rgba(255,107,157,0.35); }
-  .mode-btn.review { background: linear-gradient(135deg, #FF8C42, #E56F28); box-shadow: 0 4px 16px rgba(255,140,66,0.30); }
-  .mode-btn .icon { font-size: 1.6rem; }
-  .mode-btn .desc { font-size: 0.78rem; font-weight: 600; opacity: 0.85; display: block; margin-top: 1px; }
-
-  .progress-row {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.85rem; color: #888; margin-top: 16px;
-  }
-  .progress-bar-wrap { flex: 1; height: 8px; background: #EEE; border-radius: 99px; margin: 0 10px; }
-  .progress-bar { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--grass), #38D9A9); transition: width 0.5s; }
-
-  /* ===== QUIZ SCREEN ===== */
-  #quiz {
-    position: relative; z-index: 2;
-    padding: 20px 16px 40px;
-    max-width: 500px; margin: 0 auto;
-  }
-
-  .quiz-header {
-    display: flex; align-items: center; gap: 12px;
-    padding-top: 60px; margin-bottom: 20px;
-  }
-  .back-btn {
-    background: rgba(255,255,255,0.8);
-    border: none; border-radius: 12px;
-    width: 42px; height: 42px;
-    font-size: 1.2rem; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-  .quiz-title {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.2rem; font-weight: 900; color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.12);
-  }
-  .q-counter {
-    margin-left: auto;
-    background: rgba(255,255,255,0.85);
-    border-radius: 10px; padding: 4px 12px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.9rem; font-weight: 800; color: var(--text);
-  }
-
-  .quiz-card {
-    background: white;
-    border-radius: 28px;
-    padding: 30px 24px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    border: 3px solid #F0F0FF;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-
-  .word-display {
-    font-family: 'Nunito', sans-serif;
-    font-size: clamp(2rem, 8vw, 3rem);
-    font-weight: 900; color: var(--text);
-    letter-spacing: 2px; margin-bottom: 10px;
-  }
-  .hint-text {
-    font-size: 0.9rem; color: #aaa; margin-bottom: 20px;
-  }
-
-  .word-hint-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    background: linear-gradient(135deg, #FFF8DC, #FFF0A0);
-    border: 2px solid #FFD93D;
-    border-radius: 16px;
-    padding: 10px 20px;
-    margin-bottom: 18px;
-    box-shadow: 0 2px 8px rgba(255,217,61,0.2);
-  }
-  .word-hint-badge::before { content: '💡'; font-size: 1.1rem; margin-bottom: 2px; }
-  .hint-en {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    color: #5A3E00;
-  }
-  .hint-jp {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #8A6A20;
-    letter-spacing: 0.5px;
-  }
-  .blanks-row {
-    display: flex; justify-content: center; gap: 6px;
-    flex-wrap: wrap; margin-bottom: 20px;
-  }
-  .blank-letter {
-    width: 44px; height: 52px;
-    border: 3px solid #DDD; border-radius: 12px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.5rem; font-weight: 900;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--text); transition: all 0.2s;
-    background: #FAFAFA;
-  }
-  .blank-letter.revealed { border-color: var(--purple); background: #F5EEFF; color: var(--purple); }
-  .blank-letter.blank { border-color: var(--sky); background: white; color: var(--sky); font-size: 1rem; }
-
-  .choices-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 10px; margin-top: 10px;
-  }
-  .choice-btn {
-    padding: 14px 10px;
-    border: 3px solid #EEE; border-radius: 16px;
-    background: white; cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.1rem; font-weight: 800;
-    color: var(--text); transition: all 0.18s;
-    letter-spacing: 1px;
-  }
-  .choice-btn:hover { border-color: var(--purple); background: #F5EEFF; }
-  .choice-btn.correct { border-color: var(--grass); background: #EDFFF3; color: #27AE60; animation: pop 0.3s; }
-  .choice-btn.wrong { border-color: #FF6B6B; background: #FFF0F0; color: #E84040; animation: shake 0.3s; }
-
-  /* Spell input */
-  .spell-input-wrap { position: relative; margin-top: 8px; }
-  .spell-input {
-    width: 100%; padding: 18px 20px;
-    border: 3px solid #DDD; border-radius: 18px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.6rem; font-weight: 800;
-    color: var(--text); text-align: center;
-    letter-spacing: 4px; outline: none;
-    transition: border-color 0.2s;
-  }
-  .spell-input:focus { border-color: var(--pink); }
-  .spell-input.correct { border-color: var(--grass); background: #EDFFF3; }
-  .spell-input.wrong { border-color: #FF6B6B; background: #FFF0F0; animation: shake 0.3s; }
-
-  .submit-btn {
-    width: 100%; padding: 16px;
-    border: none; border-radius: 18px;
-    background: linear-gradient(135deg, var(--pink), #E94060);
-    color: white; font-family: 'Nunito', sans-serif;
-    font-size: 1.2rem; font-weight: 900;
-    cursor: pointer; margin-top: 12px;
-    box-shadow: 0 4px 16px rgba(255,107,157,0.35);
-    transition: transform 0.15s;
-    letter-spacing: 0.5px;
-  }
-  .submit-btn:active { transform: scale(0.97); }
-
-  .speak-btn {
-    background: linear-gradient(135deg, var(--sky), #3B9ED4);
-    border: none; border-radius: 16px;
-    padding: 12px 24px; color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem; font-weight: 800;
-    cursor: pointer; margin-bottom: 14px;
-    display: flex; align-items: center; gap: 8px;
-    margin: 0 auto 16px;
-    box-shadow: 0 4px 12px rgba(59,158,212,0.3);
-    transition: transform 0.15s;
-  }
-  .speak-btn:active { transform: scale(0.95); }
-
-  /* Feedback overlay */
-  .feedback-overlay {
-    position: fixed; inset: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: center;
-    pointer-events: none; opacity: 0;
-    transition: opacity 0.2s;
-  }
-  .feedback-overlay.show { opacity: 1; pointer-events: all; }
-  .feedback-bubble {
-    background: white; border-radius: 28px;
-    padding: 32px 40px; text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-    transform: scale(0.8);
-    transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
-  }
-  .feedback-overlay.show .feedback-bubble { transform: scale(1); }
-  .feedback-emoji { font-size: 4rem; display: block; margin-bottom: 8px; }
-  .feedback-msg {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.6rem; font-weight: 900; color: var(--text);
-  }
-  .feedback-word {
-    font-size: 1.1rem; color: #888; margin-top: 6px;
-  }
-
-  /* Result screen */
-  #result {
-    position: relative; z-index: 2;
-    text-align: center; padding: 80px 20px 40px;
-  }
-  .result-card {
-    background: white; border-radius: 28px;
-    padding: 36px 28px; max-width: 420px; margin: 0 auto;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-  }
-  .result-title {
-    font-family: 'Nunito', sans-serif;
-    font-size: 2rem; font-weight: 900; color: var(--text);
-    margin-bottom: 8px;
-  }
-  .result-score {
-    font-family: 'Nunito', sans-serif;
-    font-size: 3.5rem; font-weight: 900;
-    color: var(--purple); line-height: 1;
-    margin: 16px 0;
-  }
-  .result-stars {
-    font-size: 2rem; letter-spacing: 4px; margin-bottom: 20px;
-  }
-  .missed-list {
-    background: #FFF5F5; border-radius: 16px;
-    padding: 16px; margin-bottom: 20px; text-align: left;
-  }
-  .missed-list h3 {
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.9rem; font-weight: 800;
-    color: #E84040; margin-bottom: 10px;
-    text-transform: uppercase; letter-spacing: 1px;
-  }
-  .missed-word {
-    display: inline-block;
-    background: white; border: 2px solid #FFD0D0;
-    border-radius: 8px; padding: 4px 10px;
-    margin: 3px; font-family: 'Nunito', sans-serif;
-    font-weight: 800; font-size: 0.95rem; color: var(--text);
-  }
-  .home-btn {
-    width: 100%; padding: 16px;
-    border: none; border-radius: 18px;
-    background: linear-gradient(135deg, var(--grass), #27AE60);
-    color: white; font-family: 'Nunito', sans-serif;
-    font-size: 1.2rem; font-weight: 900;
-    cursor: pointer; margin-top: 8px;
-    box-shadow: 0 4px 16px rgba(107,203,119,0.35);
-  }
-
-  /* Review screen */
-  #review {
-    position: relative; z-index: 2;
-    padding: 20px 16px 40px; max-width: 500px; margin: 0 auto;
-  }
-  .review-header {
-    display: flex; align-items: center; gap: 12px;
-    padding-top: 60px; margin-bottom: 20px;
-  }
-  .words-grid {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-  }
-  .word-chip {
-    background: white; border-radius: 12px;
-    padding: 10px 6px; text-align: center;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.95rem; font-weight: 800; color: var(--text);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    border: 2px solid #F0F0F0;
-    cursor: pointer; transition: all 0.15s;
-    position: relative;
-  }
-  .word-chip.known { border-color: var(--grass); background: #EDFFF3; color: #27AE60; }
-  .word-chip.unknown { border-color: #FFD0D0; background: #FFF5F5; color: #E84040; }
-  .word-chip:hover { transform: scale(1.04); }
-
-  /* Animations */
-  @keyframes pop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-  }
-  @keyframes shake {
-    0%,100% { transform: translateX(0); }
-    25% { transform: translateX(-6px); }
-    75% { transform: translateX(6px); }
-  }
-  @keyframes confetti-fall {
-    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-  }
-  .confetti-piece {
-    position: fixed; width: 10px; height: 10px;
-    border-radius: 2px; pointer-events: none; z-index: 200;
-    animation: confetti-fall 1.8s ease-in forwards;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600&display=swap');
+ 
+:root {
+  --sky:#6EC6F5; --sun:#FFD93D; --grass:#6BCB77;
+  --pink:#FF6B9D; --purple:#A855F7; --orange:#FF8C42;
+  --red:#FF5252; --bg:#FFF9F0; --text:#2D2D4E;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito Sans',sans-serif;background:var(--bg);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:0;left:0;right:0;height:220px;
+  background:linear-gradient(160deg,#6EC6F5 0%,#B5E8FF 60%,#FFF9F0 100%);z-index:0;}
+.stars-bg{position:fixed;top:0;left:0;right:0;height:220px;pointer-events:none;z-index:1;overflow:hidden;}
+.star-deco{position:absolute;animation:floatStar 4s ease-in-out infinite;opacity:.5;}
+@keyframes floatStar{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(20deg);}}
+ 
+.screen{display:none;}.screen.active{display:block;}
+ 
+/* HOME */
+#home{position:relative;z-index:2;text-align:center;padding:80px 20px 40px;}
+.app-title{font-family:'Nunito',sans-serif;font-size:clamp(2.2rem,8vw,3.5rem);font-weight:900;
+  color:white;text-shadow:0 4px 0 rgba(0,0,0,.15);letter-spacing:-1px;margin-bottom:4px;}
+.app-subtitle{font-family:'Nunito',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.85);margin-bottom:32px;}
+.home-card{background:white;border-radius:28px;padding:22px 18px;max-width:420px;
+  margin:0 auto 16px;box-shadow:0 8px 32px rgba(110,198,245,.18);border:3px solid #E8F6FF;}
+ 
+/* 100-word star card grid */
+.star-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:12px;}
+.star-cell{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;padding:5px 3px;border-radius:10px;border:2px solid #EBEBEB;
+  background:#FAFAFA;transition:all .25s;cursor:default;min-width:0;
+}
+.star-cell.lit{
+  border-color:#FFD93D;background:linear-gradient(135deg,#FFFBE6,#FFF3B0);
+  box-shadow:0 2px 8px rgba(255,217,61,.3);
+}
+.star-cell.tricky-cell{border-color:#FFCDD2;background:#FFF5F5;}
+.star-cell .sc-icon{font-size:.95rem;line-height:1;}
+.star-cell .sc-word{font-family:'Nunito',sans-serif;font-size:.55rem;font-weight:800;
+  color:#BBB;line-height:1;text-align:center;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap;width:100%;}
+.star-cell.lit .sc-word{color:#B8860B;}
+.star-cell.tricky-cell .sc-word{color:#E57373;}
+.star-cell.just-lit{animation:popStar .4s ease;}
+@keyframes popStar{0%{transform:scale(1);}50%{transform:scale(1.25);}100%{transform:scale(1);}}
+ 
+.progress-row{display:flex;justify-content:space-between;align-items:center;
+  font-size:.85rem;color:#888;margin-bottom:14px;}
+.progress-bar-wrap{flex:1;height:8px;background:#EEE;border-radius:99px;margin:0 8px;}
+.progress-bar{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--grass),#38D9A9);transition:width .5s;}
+ 
+.mode-btn{display:flex;align-items:center;gap:12px;width:100%;padding:14px 16px;
+  border:none;border-radius:18px;font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
+  cursor:pointer;margin-bottom:9px;transition:transform .15s;color:white;text-align:left;}
+.mode-btn:active{transform:scale(.97);}
+.mode-btn.fill{background:linear-gradient(135deg,#A855F7,#7C3AED);box-shadow:0 4px 14px rgba(168,85,247,.35);}
+.mode-btn.spell{background:linear-gradient(135deg,#FF6B9D,#E94060);box-shadow:0 4px 14px rgba(255,107,157,.35);}
+.mode-btn.master{background:linear-gradient(135deg,#FF8C42,#E56F28);box-shadow:0 4px 14px rgba(255,140,66,.35);}
+.mode-btn.challenge{background:linear-gradient(135deg,#26C6DA,#0097A7);box-shadow:0 4px 14px rgba(38,198,218,.35);}
+.mode-btn.rev{background:linear-gradient(135deg,#6EC6F5,#3B9ED4);box-shadow:0 4px 14px rgba(110,198,245,.35);}
+.mode-btn .icon{font-size:1.4rem;flex-shrink:0;}
+.mode-btn .desc{font-size:.72rem;font-weight:600;opacity:.85;display:block;margin-top:2px;}
+.badge-pill{background:rgba(255,255,255,.28);border-radius:8px;padding:2px 8px;
+  font-size:.78rem;margin-left:auto;white-space:nowrap;}
+ 
+/* QUIZ */
+#quiz{position:relative;z-index:2;padding:16px 14px 36px;max-width:500px;margin:0 auto;}
+.quiz-header{display:flex;align-items:center;gap:10px;padding-top:58px;margin-bottom:12px;}
+.back-btn{background:rgba(255,255,255,.85);border:none;border-radius:12px;
+  width:40px;height:40px;font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.quiz-title{font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:900;color:white;
+  text-shadow:0 2px 4px rgba(0,0,0,.12);}
+.q-counter{margin-left:auto;background:rgba(255,255,255,.85);border-radius:10px;
+  padding:3px 11px;font-family:'Nunito',sans-serif;font-size:.88rem;font-weight:800;color:var(--text);}
+ 
+/* Streak bar */
+.streak-bar{background:white;border-radius:16px;padding:10px 14px;
+  margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,.07);display:none;}
+.streak-bar.on{display:block;}
+.streak-label{font-family:'Nunito',sans-serif;font-size:.75rem;font-weight:900;
+  color:#aaa;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;}
+.streak-word-name{color:var(--orange);}
+.pips-row{display:flex;gap:6px;}
+.pip{width:32px;height:10px;border-radius:99px;background:#EEE;transition:background .3s;}
+.pip.on{background:var(--orange);}
+.pip.done{background:var(--grass);}
+ 
+.quiz-card{background:white;border-radius:24px;padding:22px 18px;
+  box-shadow:0 6px 28px rgba(0,0,0,.08);border:3px solid #F0F0FF;margin-bottom:10px;text-align:center;}
+ 
+.hint-badge{display:flex;flex-direction:column;align-items:center;gap:4px;
+  background:linear-gradient(135deg,#FFF8DC,#FFF0A0);border:2px solid #FFD93D;
+  border-radius:14px;padding:9px 14px;margin-bottom:14px;box-shadow:0 2px 8px rgba(255,217,61,.2);}
+.hint-badge::before{content:'💡';font-size:.95rem;margin-bottom:2px;}
+.hint-en{font-family:'Nunito',sans-serif;font-size:.92rem;font-weight:800;color:#5A3E00;}
+.hint-jp{font-family:'Nunito Sans',sans-serif;font-size:.78rem;font-weight:600;color:#8A6A20;}
+ 
+.blanks-row{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;margin-bottom:14px;}
+.bl{width:40px;height:48px;border:3px solid #DDD;border-radius:11px;
+  font-family:'Nunito',sans-serif;font-size:1.35rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;color:var(--text);
+  transition:all .2s;background:#FAFAFA;}
+.bl.rev{border-color:var(--purple);background:#F5EEFF;color:var(--purple);}
+.bl.blank{border-color:var(--sky);background:white;color:var(--sky);font-size:.85rem;}
+ 
+.choices-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:6px;}
+.choice-btn{padding:13px 8px;border:3px solid #EEE;border-radius:14px;background:white;
+  cursor:pointer;font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
+  color:var(--text);transition:all .18s;letter-spacing:1px;}
+.choice-btn:hover{border-color:var(--purple);background:#F5EEFF;}
+.choice-btn.correct{border-color:var(--grass);background:#EDFFF3;color:#27AE60;animation:pop .3s;}
+.choice-btn.wrong{border-color:var(--red);background:#FFF0F0;color:var(--red);animation:shake .3s;}
+ 
+.speak-btn{background:linear-gradient(135deg,var(--sky),#3B9ED4);border:none;border-radius:13px;
+  padding:10px 20px;color:white;font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:800;
+  cursor:pointer;display:flex;align-items:center;gap:7px;margin:0 auto 12px;
+  box-shadow:0 3px 10px rgba(59,158,212,.3);transition:transform .15s;}
+.speak-btn:active{transform:scale(.95);}
+ 
+.spell-input{width:100%;padding:15px;border:3px solid #DDD;border-radius:16px;
+  font-family:'Nunito',sans-serif;font-size:1.45rem;font-weight:800;
+  color:var(--text);text-align:center;letter-spacing:4px;outline:none;
+  transition:border-color .2s;margin-bottom:9px;}
+.spell-input:focus{border-color:var(--pink);}
+.spell-input.correct{border-color:var(--grass);background:#EDFFF3;}
+.spell-input.wrong{border-color:var(--red);background:#FFF0F0;animation:shake .3s;}
+ 
+.submit-btn{width:100%;padding:14px;border:none;border-radius:16px;
+  background:linear-gradient(135deg,var(--pink),#E94060);color:white;
+  font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:900;
+  cursor:pointer;box-shadow:0 4px 14px rgba(255,107,157,.35);transition:transform .15s;}
+.submit-btn:active{transform:scale(.97);}
+ 
+/* Master panel */
+.master-panel{background:white;border-radius:18px;padding:12px 14px;
+  box-shadow:0 3px 14px rgba(0,0,0,.07);margin-bottom:10px;}
+.master-panel h4{font-family:'Nunito',sans-serif;font-size:.72rem;font-weight:900;
+  color:#bbb;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.mrow{display:flex;align-items:center;justify-content:space-between;
+  padding:5px 0;border-bottom:1px solid #F8F8F8;}
+.mrow:last-child{border-bottom:none;}
+.mrow .mw{font-family:'Nunito',sans-serif;font-weight:800;font-size:.9rem;color:var(--text);}
+.mpips{display:flex;gap:4px;}
+.mpip{width:14px;height:7px;border-radius:99px;background:#EEE;}
+.mpip.on{background:var(--orange);}
+.mpip.done{background:var(--grass);}
+ 
+/* RESULT */
+#result{position:relative;z-index:2;text-align:center;padding:80px 20px 40px;}
+.result-card{background:white;border-radius:28px;padding:28px 22px;max-width:420px;
+  margin:0 auto;box-shadow:0 8px 32px rgba(0,0,0,.08);}
+.result-title{font-family:'Nunito',sans-serif;font-size:1.8rem;font-weight:900;color:var(--text);margin-bottom:5px;}
+.result-score{font-family:'Nunito',sans-serif;font-size:3rem;font-weight:900;color:var(--purple);line-height:1;margin:10px 0;}
+.result-stars{font-size:1.7rem;letter-spacing:3px;margin-bottom:14px;}
+.missed-box{background:#FFF5F5;border-radius:14px;padding:12px 14px;margin-bottom:12px;text-align:left;}
+.missed-box h3{font-family:'Nunito',sans-serif;font-size:.78rem;font-weight:900;
+  color:var(--red);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;}
+.missed-word{display:inline-block;background:white;border:2px solid #FFD0D0;
+  border-radius:8px;padding:3px 8px;margin:3px;font-family:'Nunito',sans-serif;
+  font-weight:800;font-size:.88rem;color:var(--text);cursor:pointer;}
+.act-btn{width:100%;padding:14px;border:none;border-radius:16px;color:white;
+  font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:900;
+  cursor:pointer;margin-top:7px;transition:transform .15s;}
+.act-btn:active{transform:scale(.97);}
+.act-btn.green{background:linear-gradient(135deg,var(--grass),#27AE60);box-shadow:0 4px 14px rgba(107,203,119,.35);}
+.act-btn.orange{background:linear-gradient(135deg,var(--orange),#E56F28);box-shadow:0 4px 14px rgba(255,140,66,.35);}
+.act-btn.gray{background:#EFEFEF;color:#999;box-shadow:none;}
+ 
+/* MASTER FINISH */
+#masterFinish{position:relative;z-index:2;text-align:center;padding:80px 20px 40px;}
+.finish-card{background:white;border-radius:28px;padding:32px 22px;max-width:420px;
+  margin:0 auto;box-shadow:0 8px 32px rgba(0,0,0,.08);}
+ 
+/* PERFECT */
+#perfect{position:relative;z-index:2;text-align:center;padding:80px 20px 40px;}
+.perfect-card{background:white;border-radius:28px;padding:32px 22px;max-width:420px;
+  margin:0 auto;box-shadow:0 8px 32px rgba(255,217,61,.3);border:3px solid var(--sun);}
+.perfect-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;margin:16px 0;}
+ 
+/* REVIEW */
+#review{position:relative;z-index:2;padding:16px 14px 36px;max-width:500px;margin:0 auto;}
+.rev-header{display:flex;align-items:center;gap:10px;padding-top:58px;margin-bottom:16px;}
+.words-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
+.word-chip{background:white;border-radius:11px;padding:9px 5px;text-align:center;
+  font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:800;color:var(--text);
+  box-shadow:0 2px 7px rgba(0,0,0,.06);border:2px solid #F0F0F0;cursor:pointer;transition:all .14s;}
+.word-chip.mastered{border-color:var(--grass);background:#EDFFF3;color:#27AE60;}
+.word-chip.tricky{border-color:#FFCDD2;background:#FFF5F5;color:var(--red);}
+.word-chip:hover{transform:scale(1.04);}
+ 
+/* FEEDBACK */
+.fb-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;
+  justify-content:center;pointer-events:none;opacity:0;transition:opacity .2s;}
+.fb-overlay.on{opacity:1;pointer-events:all;}
+.fb-bubble{background:white;border-radius:26px;padding:26px 32px;text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.15);transform:scale(.8);
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1);}
+.fb-overlay.on .fb-bubble{transform:scale(1);}
+.fb-emoji{font-size:3.2rem;display:block;margin-bottom:6px;}
+.fb-msg{font-family:'Nunito',sans-serif;font-size:1.45rem;font-weight:900;color:var(--text);}
+.fb-word{font-size:.95rem;color:#aaa;margin-top:4px;}
+ 
+/* ANIMATIONS */
+@keyframes pop{0%{transform:scale(1);}50%{transform:scale(1.08);}100%{transform:scale(1);}}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
+@keyframes confetti-fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}
+  100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+.cp{position:fixed;width:10px;height:10px;border-radius:2px;
+  pointer-events:none;z-index:200;animation:confetti-fall 1.8s ease-in forwards;}
 </style>
 </head>
 <body>
-
-<!-- Floating star decorations -->
+ 
 <div class="stars-bg" id="starsBg"></div>
-
-<!-- ========== HOME ========== -->
+ 
+<!-- ====== HOME ====== -->
 <div id="home" class="screen active">
   <div class="app-title">⭐ Spelling Stars</div>
   <div class="app-subtitle">Oxford Word List 1–100</div>
-
   <div class="home-card">
-    <div class="total-stars">
-      <span class="big">⭐</span>
-      <span id="totalStarsDisplay">0</span> stars collected!
-    </div>
-
     <div class="progress-row">
       <span id="progressLabel">0 / 100</span>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar" id="progressBar" style="width:0%"></div>
-      </div>
-      <span>words</span>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+      <span>mastered</span>
     </div>
-
-    <br>
-
     <button class="mode-btn fill" onclick="startMode('fill')">
       <span class="icon">🔤</span>
-      <div>
-        Fill in the Missing Letter
-        <span class="desc">Which letter is missing? Choose it!</span>
-      </div>
+      <div>Fill in the Missing Letter<span class="desc">Which letter is missing? Choose it!</span></div>
     </button>
-
     <button class="mode-btn spell" onclick="startMode('spell')">
       <span class="icon">🎧</span>
-      <div>
-        Spell the Word
-        <span class="desc">Listen and type the whole word!</span>
-      </div>
+      <div>Spell the Word<span class="desc">Listen and type the whole word!</span></div>
     </button>
-
-    <button class="mode-btn review" onclick="showReview()">
+    <button class="mode-btn challenge" onclick="startChallenge()">
+      <span class="icon">🎯</span>
+      <div>Challenge Mode<span class="desc">Only words not mastered yet!</span></div>
+      <span class="badge-pill" id="challengeCount"></span>
+    </button>
+    <button class="mode-btn master" id="masterBtn" onclick="startMaster()" style="display:none">
+      <span class="icon">🔥</span>
+      <div>Practice Tricky Words<span class="desc">Get 5 in a row to master each one!</span></div>
+      <span class="badge-pill" id="masterCount"></span>
+    </button>
+    <button class="mode-btn rev" onclick="showReview()">
       <span class="icon">📖</span>
-      <div>
-        Word List
-        <span class="desc">See all 100 words</span>
-      </div>
+      <div>Word List<span class="desc">See all 100 words</span></div>
     </button>
+    <div style="margin-top:14px;border-top:2px solid #F0F0F0;padding-top:14px;">
+      <div class="star-grid" id="starGrid"></div>
+    </div>
   </div>
 </div>
-
-<!-- ========== QUIZ ========== -->
+ 
+<!-- ====== QUIZ ====== -->
 <div id="quiz" class="screen">
   <div class="quiz-header">
     <button class="back-btn" onclick="goHome()">←</button>
-    <div class="quiz-title" id="quizModeLabel">Fill in the Blank</div>
-    <div class="q-counter"><span id="qCurrent">1</span> / <span id="qTotal">10</span></div>
+    <div class="quiz-title" id="quizLabel">Fill in the Blank</div>
+    <div class="q-counter"><span id="qCur">1</span> / <span id="qTot">10</span></div>
   </div>
-
+ 
+  <div class="streak-bar" id="streakBar">
+    <div class="streak-label">Streak — <span class="streak-word-name" id="streakWordName"></span></div>
+    <div class="pips-row" id="pipsRow"></div>
+  </div>
+ 
   <div class="quiz-card">
-    <!-- Fill mode -->
-    <div id="fillSection">
-      <div class="word-hint-badge" id="wordHintBadge"></div>
+    <div id="fillSec">
+      <div class="hint-badge" id="fillHint"></div>
       <div class="blanks-row" id="blanksRow"></div>
-      <div class="hint-text">Which letter is missing?</div>
+      <div style="font-size:.82rem;color:#ccc;margin-bottom:11px;">Which letter is missing?</div>
       <div class="choices-grid" id="choicesGrid"></div>
     </div>
-
-    <!-- Spell mode -->
-    <div id="spellSection" style="display:none">
-      <button class="speak-btn" id="speakBtn" onclick="speakWord()">
-        🔊 Hear the word
-      </button>
-      <div class="spell-input-wrap">
-        <input class="spell-input" id="spellInput" type="text"
-          autocomplete="off" autocorrect="off" spellcheck="false"
-          placeholder="type here..." maxlength="20"
-          onkeydown="if(event.key==='Enter')checkSpell()">
-      </div>
+    <div id="spellSec" style="display:none">
+      <div class="hint-badge" id="spellHint"></div>
+      <button class="speak-btn" onclick="speakWord()">🔊 Hear the word</button>
+      <input class="spell-input" id="spellInput" type="text"
+        autocomplete="off" autocorrect="off" spellcheck="false"
+        placeholder="type here…" maxlength="20"
+        onkeydown="if(event.key==='Enter')checkSpell()">
       <button class="submit-btn" onclick="checkSpell()">✓ Check!</button>
     </div>
   </div>
-</div>
-
-<!-- ========== RESULT ========== -->
-<div id="result" class="screen">
-  <div class="result-card">
-    <div class="result-title" id="resultTitle">Amazing! 🎉</div>
-    <div class="result-score" id="resultScore">10/10</div>
-    <div class="result-stars" id="resultStars">⭐⭐⭐⭐⭐</div>
-    <div class="missed-list" id="missedList" style="display:none">
-      <h3>🔁 Practice these again</h3>
-      <div id="missedWords"></div>
-    </div>
-    <button class="submit-btn" onclick="startMode(currentMode)" style="margin-bottom:10px">▶ Play Again</button>
-    <button class="home-btn" onclick="goHome()">🏠 Home</button>
+ 
+  <div class="master-panel" id="masterPanel" style="display:none">
+    <h4>🔥 Tricky words this session</h4>
+    <div id="masterWordList"></div>
   </div>
 </div>
-
-<!-- ========== REVIEW ========== -->
+ 
+<!-- ====== RESULT ====== -->
+<div id="result" class="screen">
+  <div class="result-card">
+    <div class="result-title" id="resultTitle">Great Job!</div>
+    <div class="result-score" id="resultScore">8/10</div>
+    <div class="result-stars" id="resultStars">⭐⭐⭐⭐☆</div>
+    <div class="missed-box" id="missedBox" style="display:none">
+      <h3>🔁 Added to Tricky List</h3>
+      <div id="missedWords"></div>
+    </div>
+    <button class="act-btn orange" id="practiceMissedBtn" onclick="startMaster()" style="display:none">
+      🔥 Practice Tricky Words now!
+    </button>
+    <button class="act-btn green" onclick="currentMode==='challenge'?startChallenge():startMode(currentMode)">▶ Play Again</button>
+    <button class="act-btn gray" onclick="goHome()">🏠 Home</button>
+  </div>
+</div>
+ 
+<!-- ====== MASTER FINISH ====== -->
+<div id="masterFinish" class="screen">
+  <div class="finish-card">
+    <div style="font-size:3.5rem;margin-bottom:8px;">🏆</div>
+    <div style="font-family:'Nunito',sans-serif;font-size:2rem;font-weight:900;color:var(--text);margin-bottom:6px;">
+      All Mastered!
+    </div>
+    <div style="color:#888;margin-bottom:22px;" id="finishSub">You nailed every tricky word!</div>
+    <button class="act-btn green" onclick="goHome()">🏠 Home</button>
+  </div>
+</div>
+ 
+<!-- ====== PERFECT ====== -->
+<div id="perfect" class="screen">
+  <div class="perfect-card">
+    <div style="font-size:3.5rem;margin-bottom:8px;">🌟</div>
+    <div style="font-family:'Nunito',sans-serif;font-size:2.2rem;font-weight:900;color:var(--text);margin-bottom:6px;">
+      ALL 100 STARS!
+    </div>
+    <div style="color:#888;margin-bottom:14px;">You mastered every single word!</div>
+    <div class="perfect-grid" id="perfectGrid"></div>
+    <button class="act-btn green" onclick="goHome()">🏠 Home</button>
+  </div>
+</div>
+ 
+<!-- ====== REVIEW ====== -->
 <div id="review" class="screen">
-  <div class="review-header">
+  <div class="rev-header">
     <button class="back-btn" onclick="goHome()">←</button>
-    <div class="quiz-title" style="color:var(--text)">All 100 Words</div>
+    <div class="quiz-title" style="color:var(--text);">All 100 Words</div>
   </div>
   <div class="words-grid" id="wordsGrid"></div>
 </div>
-
-<!-- ========== FEEDBACK OVERLAY ========== -->
-<div class="feedback-overlay" id="feedbackOverlay">
-  <div class="feedback-bubble">
-    <span class="feedback-emoji" id="feedbackEmoji">⭐</span>
-    <div class="feedback-msg" id="feedbackMsg">Correct!</div>
-    <div class="feedback-word" id="feedbackWord"></div>
+ 
+<!-- ====== FEEDBACK ====== -->
+<div class="fb-overlay" id="fbOverlay">
+  <div class="fb-bubble">
+    <span class="fb-emoji" id="fbEmoji">⭐</span>
+    <div class="fb-msg" id="fbMsg">Correct!</div>
+    <div class="fb-word" id="fbWord"></div>
   </div>
 </div>
-
+ 
 <script>
-// ===== DATA =====
-const WORD_DATA = [
+// ============ DATA ============
+const WD = [
   {w:"the",    en:"used before a specific thing",         jp:"その〜、あの〜"},
   {w:"and",    en:"joins two things together",            jp:"〜と、そして"},
   {w:"I",      en:"yourself — the person speaking",       jp:"わたし"},
@@ -577,7 +770,7 @@ const WORD_DATA = [
   {w:"like",   en:"to enjoy / similar to",                jp:"すき、〜のように"},
   {w:"back",   en:"return / the rear side",               jp:"もどる、うしろ"},
   {w:"after",  en:"later than / following",               jp:"〜のあとに"},
-  {w:"going",  en:"-ing form of 'go'",                    jp:"いっている、いく（ing）"},
+  {w:"going",  en:"-ing form of 'go'",                    jp:"いっている（goのing）"},
   {w:"him",    en:"a boy — as the object",                jp:"かれを、かれに"},
   {w:"what",   en:"asks about a thing",                   jp:"なに、なんの"},
   {w:"be",     en:"base form of 'is / am / are'",         jp:"〜である、〜になる"},
@@ -623,346 +816,442 @@ const WORD_DATA = [
   {w:"night",  en:"the dark time after sunset",           jp:"よる"},
   {w:"found",  en:"past tense of 'find'",                 jp:"みつけた（findのかこ）"}
 ];
-const WORDS = WORD_DATA.map(d => d.w);
-const HINTS = Object.fromEntries(WORD_DATA.map(d => [d.w, {en: d.en, jp: d.jp}]));
-
-let totalStars = parseInt(localStorage.getItem('spellingStars') || '0');
-let knownWords = JSON.parse(localStorage.getItem('knownWords') || '[]');
-let currentMode = 'fill';
-let quizWords = [];
-let qIndex = 0;
-let score = 0;
-let missed = [];
-let currentWord = '';
-
-// ===== INIT =====
-function init() {
-  updateHomeStats();
-  buildStarsBg();
-  buildReviewGrid();
+const WORDS = WD.map(d=>d.w);
+const HINTS = Object.fromEntries(WD.map(d=>[d.w,{en:d.en,jp:d.jp}]));
+const STREAK_NEEDED = 3;
+ 
+// ============ PERSISTENT STATE ============
+// masteredSet: words graduated (5-streak complete)
+// trickyMap:   {word: {streak:0-5, wrongs:n}}  — persists between sessions
+let masteredSet = new Set(JSON.parse(localStorage.getItem('mSet')||'[]'));
+let trickyMap   = JSON.parse(localStorage.getItem('tMap')||'{}');
+ 
+function save() {
+  localStorage.setItem('mSet', JSON.stringify([...masteredSet]));
+  localStorage.setItem('tMap', JSON.stringify(trickyMap));
 }
-
+ 
+// ============ SESSION STATE ============
+let currentMode = 'fill';
+let quizWords   = [];
+let qIndex = 0, score = 0;
+let missed = [];          // words wrong this session
+let currentWord = '';
+ 
+// master mode
+let masterQueue   = [];   // [{word, streak, done}]
+let masterCurrent = null;
+let masterRound   = 0;
+ 
+// ============ INIT ============
+function init() {
+  buildStarsBg();
+  updateHome();
+  buildReview();
+}
+ 
 function buildStarsBg() {
   const bg = document.getElementById('starsBg');
-  const stars = ['⭐','🌟','✨','💫'];
-  for (let i = 0; i < 12; i++) {
-    const s = document.createElement('div');
-    s.className = 'star-deco';
-    s.textContent = stars[i % stars.length];
-    s.style.left = (Math.random() * 100) + '%';
-    s.style.top = (Math.random() * 90) + '%';
-    s.style.animationDelay = (Math.random() * 3) + 's';
-    s.style.fontSize = (0.9 + Math.random() * 1.2) + 'rem';
-    bg.appendChild(s);
-  }
-}
-
-function updateHomeStats() {
-  document.getElementById('totalStarsDisplay').textContent = totalStars;
-  const pct = Math.round((knownWords.length / 100) * 100);
-  document.getElementById('progressBar').style.width = pct + '%';
-  document.getElementById('progressLabel').textContent = knownWords.length + ' / 100';
-}
-
-function buildReviewGrid() {
-  const grid = document.getElementById('wordsGrid');
-  grid.innerHTML = '';
-  WORDS.forEach(w => {
-    const chip = document.createElement('div');
-    chip.className = 'word-chip' + (knownWords.includes(w) ? ' known' : '');
-    chip.textContent = w;
-    chip.onclick = () => speakSingle(w);
-    grid.appendChild(chip);
+  ['⭐','🌟','✨','💫'].forEach(s => {
+    for(let i=0;i<3;i++){
+      const el=document.createElement('div');
+      el.className='star-deco';
+      el.textContent=s;
+      el.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*80}%;
+        animation-delay:${Math.random()*3}s;font-size:${.8+Math.random()*1}rem;`;
+      bg.appendChild(el);
+    }
   });
 }
-
-// ===== SCREENS =====
-function goHome() {
-  showScreen('home');
-  updateHomeStats();
-  buildReviewGrid();
+ 
+function updateHome() {
+  const n = masteredSet.size;
+  const tricky = Object.keys(trickyMap).filter(w=>!masteredSet.has(w));
+  const notMastered = WORDS.filter(w=>!masteredSet.has(w));
+ 
+  // rebuild star-word card grid
+  const grid = document.getElementById('starGrid');
+  grid.innerHTML='';
+  WORDS.forEach(w=>{
+    const isMastered = masteredSet.has(w);
+    const isTricky   = trickyMap[w] && !isMastered;
+    const c=document.createElement('div');
+    c.className='star-cell'+(isMastered?' lit':isTricky?' tricky-cell':'');
+    c.innerHTML=`<span class="sc-icon">${isMastered?'⭐':isTricky?'🔥':'☆'}</span>
+                 <span class="sc-word">${w}</span>`;
+    grid.appendChild(c);
+  });
+ 
+  document.getElementById('progressBar').style.width=(n/100*100)+'%';
+  document.getElementById('progressLabel').textContent=n+' / 100';
+ 
+  // challenge button — always visible, shows count of non-mastered
+  document.getElementById('challengeCount').textContent=notMastered.length+' words';
+ 
+  // master (tricky) button
+  const btn=document.getElementById('masterBtn');
+  if(tricky.length){
+    btn.style.display='flex';
+    document.getElementById('masterCount').textContent=tricky.length+' words';
+  } else {
+    btn.style.display='none';
+  }
 }
-function showReview() { showScreen('review'); }
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+ 
+function buildReview() {
+  const g=document.getElementById('wordsGrid'); g.innerHTML='';
+  WORDS.forEach(w=>{
+    const c=document.createElement('div');
+    const tricky=trickyMap[w]&&!masteredSet.has(w);
+    c.className='word-chip'+(masteredSet.has(w)?' mastered':tricky?' tricky':'');
+    c.textContent=w;
+    c.onclick=()=>speakSingle(w);
+    g.appendChild(c);
+  });
+}
+ 
+// ============ SCREENS ============
+function goHome(){ showScreen('home'); updateHome(); buildReview(); }
+function showReview(){ buildReview(); showScreen('review'); }
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
-
-// ===== MODE START =====
+ 
+// ============ NORMAL QUIZ ============
 function startMode(mode) {
-  currentMode = mode;
-  quizWords = shuffle([...WORDS]).slice(0, 10);
-  qIndex = 0; score = 0; missed = [];
+  currentMode=mode; quizWords=shuffle([...WORDS]).slice(0,10);
+  qIndex=0; score=0; missed=[];
   showScreen('quiz');
-  document.getElementById('quizModeLabel').textContent =
-    mode === 'fill' ? '🔤 Fill in the Blank' : '🎧 Spell the Word';
-  document.getElementById('qTotal').textContent = quizWords.length;
-  document.getElementById('fillSection').style.display = mode === 'fill' ? 'block' : 'none';
-  document.getElementById('spellSection').style.display = mode === 'spell' ? 'block' : 'none';
-  loadQuestion();
+  document.getElementById('quizLabel').textContent=
+    mode==='fill'?'🔤 Fill in the Blank':'🎧 Spell the Word';
+  document.getElementById('qTot').textContent=quizWords.length;
+  document.getElementById('streakBar').classList.remove('on');
+  document.getElementById('masterPanel').style.display='none';
+  document.getElementById('fillSec').style.display=mode==='fill'?'block':'none';
+  document.getElementById('spellSec').style.display=mode==='spell'?'block':'none';
+  loadQ();
 }
-
-function loadQuestion() {
-  if (qIndex >= quizWords.length) { showResult(); return; }
-  currentWord = quizWords[qIndex];
-  document.getElementById('qCurrent').textContent = qIndex + 1;
-  if (currentMode === 'fill') loadFill();
-  else loadSpell();
+ 
+function loadQ(){
+  if(qIndex>=quizWords.length){showResult();return;}
+  currentWord=quizWords[qIndex];
+  document.getElementById('qCur').textContent=qIndex+1;
+  if(currentMode==='fill') loadFill(); else loadSpell();
 }
-
-// ===== FILL MODE =====
-function loadFill() {
-  const word = currentWord;
-  const hint = HINTS[word];
-  const badge = document.getElementById('wordHintBadge');
-  badge.innerHTML = `<span class="hint-en">${hint.en}</span><span class="hint-jp">${hint.jp}</span>`;
-  // Pick a random letter index to blank out
-  const blankIdx = Math.floor(Math.random() * word.length);
-  const correctLetter = word[blankIdx].toUpperCase();
-
-  // Build blanks row
-  const row = document.getElementById('blanksRow');
-  row.innerHTML = '';
-  for (let i = 0; i < word.length; i++) {
-    const div = document.createElement('div');
-    if (i === blankIdx) {
-      div.className = 'blank-letter blank';
-      div.textContent = '?';
-      div.id = 'blankTarget';
-    } else {
-      div.className = 'blank-letter revealed';
-      div.textContent = word[i].toUpperCase();
-    }
-    row.appendChild(div);
+ 
+// ============ CHALLENGE MODE (not-yet-mastered words only) ============
+function startChallenge() {
+  const pool = WORDS.filter(w => !masteredSet.has(w));
+  if(!pool.length){ goHome(); return; }
+  currentMode = 'challenge';
+  // alternate fill/spell per question
+  quizWords = shuffle([...pool]).slice(0, Math.min(10, pool.length));
+  qIndex=0; score=0; missed=[];
+  showScreen('quiz');
+  document.getElementById('quizLabel').textContent = '🎯 Challenge Mode';
+  document.getElementById('qTot').textContent = quizWords.length;
+  document.getElementById('streakBar').classList.remove('on');
+  document.getElementById('masterPanel').style.display='none';
+  loadChallengeQ();
+}
+ 
+function loadChallengeQ() {
+  if(qIndex>=quizWords.length){showResult();return;}
+  currentWord=quizWords[qIndex];
+  document.getElementById('qCur').textContent=qIndex+1;
+  // alternate: even index = fill, odd = spell
+  const useSpell = qIndex % 2 === 1;
+  document.getElementById('fillSec').style.display = useSpell?'none':'block';
+  document.getElementById('spellSec').style.display = useSpell?'block':'none';
+  if(useSpell) loadSpell(); else loadFill();
+}
+ 
+// ============ FILL ============
+function loadFill(){
+  const w=currentWord, h=HINTS[w];
+  setHintBadge('fillHint',h);
+  const bi=Math.floor(Math.random()*w.length);
+  const correct=w[bi].toUpperCase();
+  const row=document.getElementById('blanksRow'); row.innerHTML='';
+  for(let i=0;i<w.length;i++){
+    const d=document.createElement('div');
+    if(i===bi){d.className='bl blank';d.textContent='?';d.id='blankT';}
+    else{d.className='bl rev';d.textContent=w[i].toUpperCase();}
+    row.appendChild(d);
   }
-
-  // Build choices: correct + 3 wrong
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-  const wrongs = shuffle(alphabet.filter(l => l !== correctLetter)).slice(0, 3);
-  const choices = shuffle([correctLetter, ...wrongs]);
-
-  const grid = document.getElementById('choicesGrid');
-  grid.innerHTML = '';
-  choices.forEach(ch => {
-    const btn = document.createElement('button');
-    btn.className = 'choice-btn';
-    btn.textContent = ch;
-    btn.onclick = () => checkFill(btn, ch, correctLetter, word);
+  const alpha='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const opts=shuffle([correct,...shuffle(alpha.filter(l=>l!==correct)).slice(0,3)]);
+  const grid=document.getElementById('choicesGrid'); grid.innerHTML='';
+  opts.forEach(ch=>{
+    const btn=document.createElement('button');
+    btn.className='choice-btn'; btn.textContent=ch;
+    btn.onclick=()=>handleFill(btn,ch,correct,w);
     grid.appendChild(btn);
   });
 }
-
-function checkFill(btn, chosen, correct, word) {
-  // Disable all buttons
-  document.querySelectorAll('.choice-btn').forEach(b => b.onclick = null);
-  const isCorrect = chosen === correct;
-  btn.classList.add(isCorrect ? 'correct' : 'wrong');
-
-  // If wrong, reveal correct
-  if (!isCorrect) {
-    document.querySelectorAll('.choice-btn').forEach(b => {
-      if (b.textContent === correct) b.classList.add('correct');
-    });
-    missed.push(word);
-  } else {
+ 
+function handleFill(btn,chosen,correct,word){
+  document.querySelectorAll('.choice-btn').forEach(b=>b.onclick=null);
+  const ok=chosen===correct;
+  btn.classList.add(ok?'correct':'wrong');
+  if(!ok) document.querySelectorAll('.choice-btn').forEach(b=>{if(b.textContent===correct)b.classList.add('correct');});
+  const t=document.getElementById('blankT');
+  if(t){t.textContent=correct;t.className='bl rev';t.style.borderColor=ok?'var(--grass)':'var(--red)';}
+  if(currentMode==='master'){handleMasterResult(ok);return;}
+  recordResult(ok,word);
+  showFB(ok,word);
+  setTimeout(()=>{hideFB();qIndex++;
+    if(currentMode==='challenge') loadChallengeQ(); else loadQ();
+  },1200);
+}
+ 
+// ============ SPELL ============
+let spellLocked=false;
+ 
+function loadSpell(){
+  spellLocked=false;
+  setHintBadge('spellHint',HINTS[currentWord]);
+  const inp=document.getElementById('spellInput');
+  inp.value='';inp.className='spell-input';inp.disabled=false;
+  setTimeout(()=>{inp.focus();speakWord();},300);
+}
+ 
+function checkSpell(){
+  if(spellLocked)return;
+  const inp=document.getElementById('spellInput');
+  const typed=inp.value.trim().toLowerCase();
+  if(!typed)return;
+  spellLocked=true;
+  const ok=typed===currentWord.toLowerCase();
+  inp.className='spell-input '+(ok?'correct':'wrong');
+  if(!ok) setTimeout(()=>{inp.value=currentWord;},400);
+  if(currentMode==='master'){handleMasterResult(ok);return;}
+  recordResult(ok,currentWord);
+  showFB(ok,currentWord);
+  setTimeout(()=>{hideFB();qIndex++;
+    if(currentMode==='challenge') loadChallengeQ(); else loadQ();
+  },1400);
+}
+ 
+function setHintBadge(id,h){
+  document.getElementById(id).innerHTML=
+    `<span class="hint-en">${h.en}</span><span class="hint-jp">${h.jp}</span>`;
+}
+ 
+// ============ RECORD ============
+function recordResult(ok,word){
+  if(ok){
     score++;
-    if (!knownWords.includes(word)) knownWords.push(word);
-    totalStars++;
-    saveProgress();
+  } else {
+    missed.push(word);
+    if(!trickyMap[word]) trickyMap[word]={streak:0,wrongs:0};
+    trickyMap[word].streak=0;
+    trickyMap[word].wrongs++;
+    save();
   }
-
-  // Fill in the blank visually
-  const target = document.getElementById('blankTarget');
-  if (target) {
-    target.textContent = correct;
-    target.className = 'blank-letter ' + (isCorrect ? 'revealed' : 'blank');
-    target.style.borderColor = isCorrect ? 'var(--grass)' : '#FF6B6B';
-  }
-
-  showFeedback(isCorrect, word);
-  setTimeout(() => {
-    hideFeedback();
-    qIndex++;
-    loadQuestion();
-  }, 1200);
 }
-
-// ===== SPELL MODE =====
-let spellLocked = false;
-
-function loadSpell() {
-  spellLocked = false;
-  const input = document.getElementById('spellInput');
-  input.value = '';
-  input.className = 'spell-input';
-  input.disabled = false;
-  input.focus();
-  // Auto-speak
-  setTimeout(() => speakWord(), 300);
+ 
+// ============ MASTER MODE ============
+function startMaster(){
+  const words=Object.keys(trickyMap).filter(w=>!masteredSet.has(w));
+  if(!words.length){goHome();return;}
+  // restore streaks from trickyMap
+  masterQueue=words.map(w=>({word:w,streak:trickyMap[w].streak||0,done:false}));
+  masterRound=0;
+  currentMode='master';
+  showScreen('quiz');
+  document.getElementById('quizLabel').textContent='🔥 Tricky Words';
+  document.getElementById('qTot').textContent='?';
+  document.getElementById('streakBar').classList.add('on');
+  document.getElementById('masterPanel').style.display='block';
+  renderMasterPanel();
+  nextMasterQ();
 }
-
-function speakWord() { speakSingle(currentWord); }
-
-// Priority-ordered list of preferred voices (most natural first)
-const VOICE_PRIORITY = [
-  // macOS / iOS Siri-quality
-  "Samantha", "Karen", "Daniel", "Moira", "Rishi",
-  // Google high-quality
-  "Google US English", "Google UK English Female", "Google UK English Male",
-  // Microsoft natural voices (Edge/Windows)
-  "Microsoft Aria Online (Natural)", "Microsoft Guy Online (Natural)",
-  "Microsoft Zira", "Microsoft David",
-];
-
-let _bestVoice = null;
-
-function getBestVoice() {
-  if (_bestVoice) return _bestVoice;
-  const voices = window.speechSynthesis.getVoices();
-  if (!voices.length) return null;
-
-  // Try priority list first
-  for (const name of VOICE_PRIORITY) {
-    const v = voices.find(v => v.name === name);
-    if (v) { _bestVoice = v; return v; }
-  }
-  // Fall back: any en-AU, then en-GB, then en-US
-  for (const lang of ['en-AU', 'en-GB', 'en-US', 'en']) {
-    const v = voices.find(v => v.lang.startsWith(lang));
-    if (v) { _bestVoice = v; return v; }
-  }
-  return voices[0];
+ 
+function nextMasterQ(){
+  const rem=masterQueue.filter(i=>!i.done);
+  if(!rem.length){showMasterFinish();return;}
+  masterRound++;
+  const minS=Math.min(...rem.map(i=>i.streak));
+  masterCurrent=shuffle(rem.filter(i=>i.streak===minS))[0];
+  currentWord=masterCurrent.word;
+ 
+  document.getElementById('qCur').textContent=masterRound;
+  document.getElementById('streakWordName').textContent=currentWord;
+  renderPips();
+ 
+  const useSpell=masterRound%2===0;
+  document.getElementById('fillSec').style.display=useSpell?'none':'block';
+  document.getElementById('spellSec').style.display=useSpell?'block':'none';
+  if(useSpell) loadSpell(); else loadFill();
 }
-
-function speakSingle(w) {
-  if (!window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
-
-  const trySpeak = () => {
-    const u = new SpeechSynthesisUtterance(w);
-    const voice = getBestVoice();
-    if (voice) {
-      u.voice = voice;
-      u.lang = voice.lang;
+ 
+function handleMasterResult(ok){
+  if(ok){
+    masterCurrent.streak++;
+    trickyMap[masterCurrent.word].streak=masterCurrent.streak;
+    save();
+    renderPips();
+    if(masterCurrent.streak>=STREAK_NEEDED){
+      masterCurrent.done=true;
+      masteredSet.add(masterCurrent.word);
+      delete trickyMap[masterCurrent.word];
+      save();
+      renderMasterPanel();
+      showFB(true,masterCurrent.word+' — MASTERED! 🏆');
+      setTimeout(()=>{
+        hideFB();
+        if(masteredSet.size===100){showPerfect();return;}
+        nextMasterQ();
+      },1800);
     } else {
-      u.lang = 'en-AU';
+      renderMasterPanel();
+      showFB(true,masterCurrent.word);
+      setTimeout(()=>{hideFB();nextMasterQ();},1200);
     }
-    u.rate = 0.82;
-    u.pitch = 1.05;
+  } else {
+    masterCurrent.streak=0;
+    trickyMap[masterCurrent.word].streak=0;
+    trickyMap[masterCurrent.word].wrongs=(trickyMap[masterCurrent.word].wrongs||0)+1;
+    save();
+    renderPips();
+    renderMasterPanel();
+    showFB(false,masterCurrent.word);
+    setTimeout(()=>{hideFB();nextMasterQ();},1200);
+  }
+}
+ 
+function renderPips(){
+  const row=document.getElementById('pipsRow'); row.innerHTML='';
+  for(let i=0;i<STREAK_NEEDED;i++){
+    const p=document.createElement('div');
+    const isDone=masterCurrent.streak>=STREAK_NEEDED;
+    p.className='pip'+(isDone?' done':i<masterCurrent.streak?' on':'');
+    row.appendChild(p);
+  }
+}
+ 
+function renderMasterPanel(){
+  const list=document.getElementById('masterWordList'); list.innerHTML='';
+  masterQueue.forEach(item=>{
+    const row=document.createElement('div'); row.className='mrow';
+    const pips=Array.from({length:STREAK_NEEDED},(_,i)=>
+      `<div class="mpip ${item.done?'done':i<item.streak?'on':''}"></div>`
+    ).join('');
+    row.innerHTML=`<span class="mw">${item.done?'✅':'🔥'} ${item.word}</span>
+      <div class="mpips">${pips}</div>`;
+    list.appendChild(row);
+  });
+}
+ 
+function showMasterFinish(){
+  document.getElementById('finishSub').textContent=
+    `Practiced ${masterRound} rounds — every tricky word mastered! 💪`;
+  showScreen('masterFinish');
+  spawnConfetti(); setTimeout(spawnConfetti,400);
+}
+ 
+function showPerfect(){
+  showScreen('perfect');
+  const g=document.getElementById('perfectGrid'); g.innerHTML='';
+  WORDS.forEach(()=>{
+    const c=document.createElement('div');
+    c.className='star-cell';c.textContent='⭐';g.appendChild(c);
+  });
+  for(let i=0;i<6;i++) setTimeout(spawnConfetti,i*250);
+}
+ 
+// ============ RESULT ============
+function showResult(){
+  showScreen('result');
+  const pct=Math.round(score/quizWords.length*100);
+  document.getElementById('resultTitle').textContent=
+    pct===100?'Perfect! 🏆':pct>=80?'Great Job! 🌟':pct>=50?'Good Try! 💪':'Keep Going! 📚';
+  document.getElementById('resultScore').textContent=score+' / '+quizWords.length;
+  const s=Math.round(score/quizWords.length*5);
+  document.getElementById('resultStars').textContent='⭐'.repeat(s)+'☆'.repeat(5-s);
+ 
+  if(missed.length){
+    document.getElementById('missedBox').style.display='block';
+    document.getElementById('missedWords').innerHTML=
+      missed.map(w=>`<span class="missed-word" onclick="speakSingle('${w}')">${w}</span>`).join('');
+    document.getElementById('practiceMissedBtn').style.display='block';
+  } else {
+    document.getElementById('missedBox').style.display='none';
+    document.getElementById('practiceMissedBtn').style.display='none';
+  }
+  if(pct===100) spawnConfetti();
+}
+ 
+// ============ SPEECH ============
+const VP=["Samantha","Karen","Daniel","Moira","Rishi",
+  "Google US English","Google UK English Female","Google UK English Male",
+  "Microsoft Aria Online (Natural)","Microsoft Guy Online (Natural)",
+  "Microsoft Zira","Microsoft David"];
+let _voice=null;
+function getBestVoice(){
+  if(_voice)return _voice;
+  const vs=window.speechSynthesis.getVoices();
+  if(!vs.length)return null;
+  for(const n of VP){const v=vs.find(v=>v.name===n);if(v){_voice=v;return v;}}
+  for(const l of['en-AU','en-GB','en-US','en']){
+    const v=vs.find(v=>v.lang.startsWith(l));if(v){_voice=v;return v;}
+  }
+  return vs[0];
+}
+function speakWord(){speakSingle(currentWord);}
+function speakSingle(w){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const go=()=>{
+    const u=new SpeechSynthesisUtterance(w);
+    const v=getBestVoice();
+    if(v){u.voice=v;u.lang=v.lang;}else{u.lang='en-AU';}
+    u.rate=.82;u.pitch=1.05;
     window.speechSynthesis.speak(u);
   };
-
-  // Voices may not be loaded yet on first call
-  const voices = window.speechSynthesis.getVoices();
-  if (voices.length) {
-    trySpeak();
-  } else {
-    window.speechSynthesis.addEventListener('voiceschanged', trySpeak, { once: true });
-  }
+  if(window.speechSynthesis.getVoices().length)go();
+  else window.speechSynthesis.addEventListener('voiceschanged',go,{once:true});
 }
-
-function checkSpell() {
-  if (spellLocked) return;
-  const input = document.getElementById('spellInput');
-  const typed = input.value.trim().toLowerCase();
-  if (!typed) return;
-  spellLocked = true;
-  const isCorrect = typed === currentWord.toLowerCase();
-  input.className = 'spell-input ' + (isCorrect ? 'correct' : 'wrong');
-
-  if (isCorrect) {
-    score++;
-    if (!knownWords.includes(currentWord)) knownWords.push(currentWord);
-    totalStars++;
-    saveProgress();
-  } else {
-    missed.push(currentWord);
-    // Show correct answer
-    setTimeout(() => { input.value = currentWord; }, 400);
-  }
-
-  showFeedback(isCorrect, currentWord);
-  setTimeout(() => {
-    hideFeedback();
-    qIndex++;
-    loadQuestion();
-  }, 1400);
+ 
+// ============ FEEDBACK ============
+const OK=['Perfect! ⭐','Amazing! 🌟','Great job! 🎉','You got it! 💫','Brilliant! ✨'];
+const NG=['Almost! 💪','Try again! 🔁','Keep going! 😊','Good try! 👍'];
+function showFB(ok,word){
+  document.getElementById('fbEmoji').textContent=ok?'⭐':'💪';
+  document.getElementById('fbMsg').textContent=ok?OK[Math.floor(Math.random()*OK.length)]:NG[Math.floor(Math.random()*NG.length)];
+  document.getElementById('fbWord').textContent=word;
+  document.getElementById('fbOverlay').classList.add('on');
+  if(ok)spawnConfetti();
 }
-
-// ===== FEEDBACK =====
-const CORRECT_MSGS = ['Perfect! ⭐','Amazing! 🌟','Great job! 🎉','You got it! 💫','Brilliant! ✨'];
-const WRONG_MSGS = ['Almost! 💪','Try again! 🔁','Keep going! 😊','Good try! 👍'];
-
-function showFeedback(correct, word) {
-  const overlay = document.getElementById('feedbackOverlay');
-  document.getElementById('feedbackEmoji').textContent = correct ? '⭐' : '💪';
-  document.getElementById('feedbackMsg').textContent =
-    correct ? CORRECT_MSGS[Math.floor(Math.random()*CORRECT_MSGS.length)]
-            : WRONG_MSGS[Math.floor(Math.random()*WRONG_MSGS.length)];
-  document.getElementById('feedbackWord').textContent = word;
-  overlay.classList.add('show');
-  if (correct) spawnConfetti();
-}
-function hideFeedback() {
-  document.getElementById('feedbackOverlay').classList.remove('show');
-}
-
-// ===== RESULT =====
-function showResult() {
-  showScreen('result');
-  const pct = Math.round((score / quizWords.length) * 100);
-  let title = pct === 100 ? 'Perfect Score! 🏆' : pct >= 80 ? 'Great Job! 🌟' : pct >= 50 ? 'Good Try! 💪' : 'Keep Practicing! 📚';
-  document.getElementById('resultTitle').textContent = title;
-  document.getElementById('resultScore').textContent = score + ' / ' + quizWords.length;
-  const stars = Math.round((score / quizWords.length) * 5);
-  document.getElementById('resultStars').textContent = '⭐'.repeat(stars) + '☆'.repeat(5-stars);
-
-  if (missed.length > 0) {
-    document.getElementById('missedList').style.display = 'block';
-    document.getElementById('missedWords').innerHTML = missed.map(w =>
-      `<span class="missed-word" onclick="speakSingle('${w}')">${w}</span>`
-    ).join('');
-  } else {
-    document.getElementById('missedList').style.display = 'none';
-  }
-
-  if (pct === 100) spawnConfetti();
-}
-
-// ===== CONFETTI =====
-function spawnConfetti() {
-  const colors = ['#FFD93D','#FF6B9D','#6EC6F5','#6BCB77','#A855F7','#FF8C42'];
-  for (let i = 0; i < 40; i++) {
-    setTimeout(() => {
-      const el = document.createElement('div');
-      el.className = 'confetti-piece';
-      el.style.left = Math.random() * 100 + 'vw';
-      el.style.top = '-10px';
-      el.style.background = colors[Math.floor(Math.random()*colors.length)];
-      el.style.animationDuration = (1.2 + Math.random()*1.2) + 's';
-      el.style.animationDelay = (Math.random()*0.5) + 's';
-      el.style.transform = `rotate(${Math.random()*360}deg)`;
+function hideFB(){document.getElementById('fbOverlay').classList.remove('on');}
+ 
+// ============ CONFETTI ============
+function spawnConfetti(){
+  const cols=['#FFD93D','#FF6B9D','#6EC6F5','#6BCB77','#A855F7','#FF8C42'];
+  for(let i=0;i<40;i++){
+    setTimeout(()=>{
+      const el=document.createElement('div'); el.className='cp';
+      el.style.cssText=`left:${Math.random()*100}vw;top:-10px;
+        background:${cols[Math.floor(Math.random()*cols.length)]};
+        animation-duration:${1.2+Math.random()*1.2}s;
+        animation-delay:${Math.random()*.5}s;
+        transform:rotate(${Math.random()*360}deg);`;
       document.body.appendChild(el);
-      setTimeout(() => el.remove(), 2500);
-    }, i * 30);
+      setTimeout(()=>el.remove(),2500);
+    },i*30);
   }
 }
-
-// ===== UTILS =====
-function shuffle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
+ 
+// ============ UTILS ============
+function shuffle(a){
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
 }
-
-function saveProgress() {
-  localStorage.setItem('spellingStars', totalStars);
-  localStorage.setItem('knownWords', JSON.stringify(knownWords));
-}
-
+ 
 init();
 </script>
 </body>
 </html>
+ 
